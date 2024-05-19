@@ -440,3 +440,11 @@ footer p {
   text-align: center;
 }
 
+.link-add{
+  color: blue;
+  white-space: nowrap;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
