@@ -180,7 +180,7 @@ section {
   height: 200px;
   width: 400px;
   /* margin: auto 0; */
-  margin-top: -200px;
+  margin-top: -170px;
 }
 
 .section__text {
@@ -199,6 +199,7 @@ section {
 .section__text__p2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
+  margin-top: -0.75rem;
 }
 
 .title {
@@ -209,8 +210,8 @@ section {
 #socials-container {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
+  margin-top: 4rem;
+  gap: 2rem;
 }
 
 /* ICONS */
