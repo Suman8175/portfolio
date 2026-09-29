@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MADT Unit 1 notes: Introduction to Kotlin." />
+  <title>Unit 1: Introduction to Kotlin | MADT Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="unit1.html" aria-label="MADT notes home"><span class="brand-mark">M</span><span><strong>MADT notes</strong><small>Mobile app development</small></span></a>
+      <p class="side-kicker">Course map / 7 units</p>
+      <nav class="unit-nav" aria-label="MADT units">
+        <a class="unit-link" href="unit1.html"><span class="unit-number">01</span><span class="unit-name">Kotlin foundations</span></a>
+        <a class="unit-link" href="unit2.html"><span class="unit-number">02</span><span class="unit-name">Java &amp; OOPS</span></a>
+        <a class="unit-link" href="unit3.html"><span class="unit-number">03</span><span class="unit-name">Android basics</span></a>
+        <a class="unit-link" href="unit4.html"><span class="unit-number">04</span><span class="unit-name">User interface</span></a>
+        <a class="unit-link" href="unit5.html"><span class="unit-number">05</span><span class="unit-name">Advanced topics</span></a>
+        <a class="unit-link" href="unit6.html"><span class="unit-number">06</span><span class="unit-name">Graphics &amp; media</span></a>
+        <a class="unit-link" href="unit7.html"><span class="unit-number">07</span><span class="unit-name">Package &amp; monetize</span></a>
+      </nav>
+      <div class="sidebar-footer">Pokhara University &middot; BCA<span>keep learning / keep shipping</span></div>
+    </aside>
+
+    <main class="main" id="notes-content">
+      <div class="topline"><span><span class="crumb">MADT</span> / unit 01</span><span class="status">notes in progress</span></div>
+      <div class="content">
+        <header class="hero">
+          <div><p class="eyebrow">Unit 01 / 7 hours</p><h1>Introduction to Kotlin</h1><p class="hero-copy">A modern language for Android: concise, safe, interoperable, and designed to make everyday application code easier to read.</p></div>
+          <div class="unit-stamp"><strong>01</strong><span>Foundations first.</span><small>KOTLIN + ANDROID</small></div>
+        </header>
+
+        <div class="reading-tools"><p class="section-label">On this page</p><label class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="topic-search" type="search" placeholder="Filter sections" aria-label="Filter sections" /></label></div>
+
+        <article class="notes-body">
+          <div class="topic-index">
+            <a class="topic-card" href="#features"><h3>1.1.1 Features</h3><p>Sixteen ideas that make Kotlin useful in Android development.</p></a>
+            <a class="topic-card" href="#history"><h3>1.1.2 History</h3><p>Why JetBrains created Kotlin and how it became Kotlin-first.</p></a>
+            <a class="topic-card" href="#comparison"><h3>1.1.3 Kotlin over Java</h3><p>A practical comparison of the two languages.</p></a>
+          </div>
+
+          <h2 id="introduction">1.1 Introduction to Kotlin</h2>
+          <p>Kotlin is a modern, free, open-source programming language made by a company called JetBrains. It is <strong>statically typed</strong>, meaning the type of every variable (number, text, and so on) is known when the code is compiled. It runs on the Java Virtual Machine (JVM), so it works with existing Java code. Google has made it the preferred language for Android development.</p>
+          <div class="callout"><strong>Key idea</strong>Kotlin brings modern language features to the Android ecosystem without giving up access to the Java and JVM world.</div>
+
+          <h2 id="features">1.1.1 Overview of Kotlin's Features</h2>
+          <h3>1. Concise (less code)</h3>
+          <p>Kotlin removes a lot of boilerplate, or repeated and unnecessary code. The same program is usually much shorter than in Java.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>hello.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun main() {
+  println("Hello, Android!")
+}</code></pre></div>
+
+          <h3>2. Null safety</h3>
+          <p>The famous Java problem is the <code>NullPointerException</code>, where an app crashes because a variable holds nothing. Kotlin addresses this at compile time.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>null-safety.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>var name: String = "Ram"      // cannot be null
+var nick: String? = null      // ? means it can be null
+
+println(nick?.length)         // safe call: prints null
+println(nick?.length ?: 0)    // Elvis operator: use 0 if null</code></pre></div>
+
+          <h3>3. Type inference</h3><p>Kotlin can guess the type from a value, so you do not always have to write it.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>inference.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val age = 20           // Kotlin knows this is Int
+val city = "Kathmandu" // Kotlin knows this is String</code></pre></div>
+
+          <h3>4. <code>val</code> and <code>var</code></h3><p><code>val</code> is read-only after it is set. <code>var</code> can be changed later. Using <code>val</code> wherever possible makes programs safer and easier to understand.</p>
+
+          <h3>5. Full Java interoperability</h3><p>Kotlin and Java can be used in the same project. You can call Java code from Kotlin and Kotlin code from Java, letting teams move to Kotlin gradually without rewriting everything.</p>
+
+          <h3>6. Data classes</h3><p>One line creates a class that automatically gets useful methods such as <code>toString()</code>, <code>equals()</code>, <code>hashCode()</code>, and <code>copy()</code>.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>student.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>data class Student(val name: String, val age: Int)</code></pre></div>
+
+          <h3>7. Extension functions</h3><p>You can add new functions to an existing class without changing its source code.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>extensions.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun String.shout() = this.uppercase() + "!"
+println("hello".shout())   // HELLO!</code></pre></div>
+
+          <h3>8. Smart casts</h3><p>After Kotlin checks a type, it automatically treats the variable as that type.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>smart-cast.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun show(x: Any) {
+  if (x is String) println(x.length)  // no manual cast needed
+}</code></pre></div>
+
+          <h3>9. Default and named arguments</h3>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>arguments.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun greet(name: String, greeting: String = "Hello") = "$greeting, $name"
+
+greet("Sita")
+greet(greeting = "Namaste", name = "Sita")</code></pre></div>
+
+          <h3>10. String templates</h3><p>Put variables directly inside text using the <code>$</code> symbol.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>templates.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>println("$name is $age years old")</code></pre></div>
+
+          <h3>11. Powerful <code>when</code> expression</h3><p><code>when</code> is a cleaner and more powerful replacement for Java's <code>switch</code>.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>grades.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val result = when (marks) {
+  in 80..100 -> "Distinction"
+  in 40..79  -> "Pass"
+  else       -> "Fail"
+}</code></pre></div>
+
+          <h3>12. Lambdas and higher-order functions</h3><p>Kotlin supports functional programming. Functions can be passed around like values, which is heavily used in Android for button click listeners and similar callbacks.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>listener.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>button.setOnClickListener { println("Clicked!") }</code></pre></div>
+
+          <h3>13. Coroutines</h3><p>Coroutines make it simple to run long tasks such as network calls and database work in the background without freezing the app's screen. This matters in Android because the main thread must stay responsive.</p>
+          <h3>14. Object-oriented and functional</h3><p>Kotlin supports classes, inheritance, and interfaces alongside functional-style code, so you can mix both approaches.</p>
+          <h3>15. Multiplatform support</h3><p>Kotlin can target more than Android:</p>
+          <ul><li><strong>JVM:</strong> servers and desktop applications</li><li><strong>JavaScript:</strong> web applications</li><li><strong>Native:</strong> iOS, Windows, Linux, and macOS</li><li><strong>Kotlin Multiplatform:</strong> shared code between Android and iOS</li></ul>
+          <h3>16. Great tool support</h3><p>Kotlin is made by the same company that makes IntelliJ IDEA, and Android Studio is built on IntelliJ. Editing, debugging, and auto-suggestions therefore work smoothly together.</p>
+
+          <h2 id="history">1.1.2 History of the Kotlin Language</h2>
+          <h3>Why was it created?</h3><p>Around 2010, JetBrains developers were using Java but found it verbose and limited. They looked at languages such as Scala but found problems including slow compile times, so they decided to build their own language. The project was led by Andrey Breslav.</p>
+          <h3>The name</h3><p>Kotlin is named after Kotlin Island, near St. Petersburg in Russia, where many JetBrains developers lived. This follows the idea behind Java, which is named after an Indonesian island.</p>
+          <h3>Timeline</h3>
+          <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th></tr></thead><tbody>
+            <tr><td>2010</td><td>JetBrains starts work on a new language called Project Kotlin.</td></tr>
+            <tr><td>July 2011</td><td>Kotlin is publicly announced.</td></tr>
+            <tr><td>2012</td><td>Kotlin is released as open source under the Apache 2.0 licence.</td></tr>
+            <tr><td>15 Feb 2016</td><td>Kotlin 1.0, the first stable release.</td></tr>
+            <tr><td>May 2017</td><td>At Google I/O, Google announces official support for Kotlin on Android.</td></tr>
+            <tr><td>Oct 2017</td><td>Android Studio 3.0 ships with Kotlin support built in.</td></tr>
+            <tr><td>Oct 2018</td><td>Kotlin 1.3: coroutines become stable.</td></tr>
+            <tr><td>May 2019</td><td>Google declares Android development Kotlin-first.</td></tr>
+            <tr><td>2021</td><td>Jetpack Compose reaches stable 1.0.</td></tr>
+            <tr><td>May 2024</td><td>Kotlin 2.0 arrives with the new K2 compiler.</td></tr>
+          </tbody></table></div>
+          <div class="callout"><strong>Key point to remember</strong>Before 2017, Android apps were written almost entirely in Java. Google's 2017 announcement was the turning point that made Kotlin popular among Android developers.</div>
+
+          <h2 id="comparison">1.1.3 Why Kotlin over Java</h2>
+          <p>Java is stable and established, but Kotlin was designed to address many of Java's legacy limitations. For modern Mobile Application Development, Kotlin is preferred for several structural reasons.</p>
+          <div class="table-wrap"><table><thead><tr><th>Feature / aspect</th><th>Java</th><th>Kotlin</th></tr></thead><tbody>
+            <tr><td>Code verbosity</td><td>Requires explicit getters, setters, and constructors for basic data models.</td><td><code>data class</code> declarations handle boilerplate in one line.</td></tr>
+            <tr><td>Null safety</td><td>Variables can freely hold null, making apps prone to runtime NPE crashes.</td><td>Nullable types are explicitly marked with <code>?</code> and checked at compile time.</td></tr>
+            <tr><td>Type declaration</td><td>Explicit typing is usually required, such as <code>String name = "Student";</code></td><td>Type inference allows <code>val name = "Student"</code>.</td></tr>
+            <tr><td>Asynchronous execution</td><td>Traditional threads or external libraries can be heavy and complex.</td><td>Coroutines are lightweight and native to the language.</td></tr>
+            <tr><td>Extensibility</td><td>Usually requires inheritance or separate utility classes.</td><td>Extension functions add behavior directly to existing classes.</td></tr>
+            <tr><td>Exception handling</td><td>Checked exceptions can require repetitive try-catch blocks.</td><td>No checked exceptions, keeping application code cleaner.</td></tr>
+          </tbody></table></div>
+        </article>
+
+        <div class="next-unit"><p>Unit 1 is the Kotlin foundation for the Android units ahead.</p><a href="unit2.html">Next unit &rarr;</a></div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
