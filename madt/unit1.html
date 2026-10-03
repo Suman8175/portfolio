@@ -42,6 +42,7 @@
             <a class="topic-card" href="#features"><h3>1.1.1 Features</h3><p>Sixteen ideas that make Kotlin useful in Android development.</p></a>
             <a class="topic-card" href="#history"><h3>1.1.2 History</h3><p>Why JetBrains created Kotlin and how it became Kotlin-first.</p></a>
             <a class="topic-card" href="#comparison"><h3>1.1.3 Kotlin over Java</h3><p>A practical comparison of the two languages.</p></a>
+            <a class="topic-card" href="#syntax"><h3>1.2 Basic Syntax and Structure</h3><p>Variables, types, casting, and collections in Kotlin.</p></a>
           </div>
 
           <h2 id="introduction">1.1 Introduction to Kotlin</h2>
@@ -136,7 +137,285 @@ greet(greeting = "Namaste", name = "Sita")</code></pre></div>
             <tr><td>Extensibility</td><td>Usually requires inheritance or separate utility classes.</td><td>Extension functions add behavior directly to existing classes.</td></tr>
             <tr><td>Exception handling</td><td>Checked exceptions can require repetitive try-catch blocks.</td><td>No checked exceptions, keeping application code cleaner.</td></tr>
           </tbody></table></div>
+
+          <h2 id="syntax">1.2 Basic Syntax and Structure</h2>
+
+          <h3>1.2.1 Variables and Data Types</h3>
+          <h4>What is a variable?</h4>
+          <p>A variable is a named container in memory that stores a value. In Kotlin, you declare one with either <code>val</code> or <code>var</code>.</p>
+          <div class="table-wrap"><table><thead><tr><th><code>val</code></th><th><code>var</code></th></tr></thead><tbody>
+            <tr><td>Read-only; the value is assigned once.</td><td>Mutable; the value can change.</td></tr>
+            <tr><td>Similar to <code>final</code> in Java.</td><td>Similar to a normal variable in Java.</td></tr>
+            <tr><td>Reassignment is not allowed.</td><td>Reassignment is allowed.</td></tr>
+          </tbody></table></div>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>variables.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val pi = 3.14159
+// pi = 3.14        // ERROR: val cannot be reassigned
+
+var age = 20
+age = 21            // OK</code></pre></div>
+          <p>Basic variable syntax is <code>val/var variableName: DataType = value</code>.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>declarations.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val name: String = "Ram"
+var marks: Int = 85</code></pre></div>
+
+          <h4>Built-in data types</h4>
+          <p>In Kotlin, everything is an object. There are no separate primitive types like Java's <code>int</code>; the compiler optimizes values automatically.</p>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Size</th><th>Range / precision</th></tr></thead><tbody>
+            <tr><td><code>Byte</code></td><td>8 bit</td><td>-128 to 127</td></tr>
+            <tr><td><code>Short</code></td><td>16 bit</td><td>-32,768 to 32,767</td></tr>
+            <tr><td><code>Int</code></td><td>32 bit</td><td>About -2.1 billion to 2.1 billion</td></tr>
+            <tr><td><code>Long</code></td><td>64 bit</td><td>About +/-9.2 x 10^18</td></tr>
+            <tr><td><code>Float</code></td><td>32 bit</td><td>About 6-7 decimal digits</td></tr>
+            <tr><td><code>Double</code></td><td>64 bit</td><td>About 15-16 decimal digits</td></tr>
+          </tbody></table></div>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Stores</th><th>Example</th></tr></thead><tbody>
+            <tr><td><code>Boolean</code></td><td><code>true</code> or <code>false</code></td><td><code>val isPass = true</code></td></tr>
+            <tr><td><code>Char</code></td><td>A single character</td><td><code>val grade = 'A'</code></td></tr>
+            <tr><td><code>String</code></td><td>Text; immutable</td><td><code>val city = "Kathmandu"</code></td></tr>
+          </tbody></table></div>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>types.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val a: Int = 25
+val b: Long = 5_000_000_000L      // L suffix for Long
+val c: Float = 3.14f              // f suffix for Float
+val d: Double = 3.14159265
+val e: Char = 'K'
+val f: Boolean = false
+val million = 1_000_000           // underscores improve readability
+val hex = 0xFF                    // hexadecimal = 255
+val bin = 0b1010                  // binary = 10</code></pre></div>
+          <p>You can inspect an inferred type with:</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>type-check.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val n = 42
+println(n::class.simpleName)</code></pre></div>
+
+          <h4>Nullable types</h4>
+          <p>By default, variables cannot hold <code>null</code>. Add <code>?</code> to allow it.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>nullable.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>var a: String = "Hello"
+// a = null            // ERROR
+
+var b: String? = "Hello"
+b = null               // OK</code></pre></div>
+
+          <h3>1.2.2 Type Inference</h3>
+          <p>Kotlin automatically figures out a variable's data type from the value assigned to it. You only need to write the type explicitly when a variable is declared without an immediate initial value.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>inference.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val name = "Sita"      // compiler infers String
+val age = 22           // Int
+val height = 5.6       // Double
+val isStudent = true   // Boolean
+val grade = 'A'        // Char</code></pre></div>
+          <div class="table-wrap"><table><thead><tr><th>Value written</th><th>Inferred type</th></tr></thead><tbody>
+            <tr><td><code>10</code></td><td><code>Int</code></td></tr>
+            <tr><td><code>3_000_000_000</code> (too big for <code>Int</code>)</td><td><code>Long</code></td></tr>
+            <tr><td><code>10L</code></td><td><code>Long</code></td></tr>
+            <tr><td><code>3.14</code></td><td><code>Double</code></td></tr>
+            <tr><td><code>3.14f</code></td><td><code>Float</code></td></tr>
+            <tr><td><code>'A'</code></td><td><code>Char</code></td></tr>
+            <tr><td><code>"Hi"</code></td><td><code>String</code></td></tr>
+            <tr><td><code>true</code> / <code>false</code></td><td><code>Boolean</code></td></tr>
+          </tbody></table></div>
+          <h4>Inference in functions</h4>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>functions.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun square(x: Int) = x * x        // return type Int inferred
+
+fun greet(name: String) {         // block body with no return: Unit
+    println("Hi $name")
+}
+
+fun cube(x: Int): Int {           // block body with a return must declare the type
+    return x * x * x
+}</code></pre></div>
+
+          <h3>1.2.3 Type Casting</h3>
+          <p>Casting converts one object type into another. Kotlin provides smart, unsafe, and safe casting mechanisms.</p>
+          <h4>Smart casts with <code>is</code></h4>
+          <p>After checking an object's type with <code>is</code>, Kotlin automatically treats it as that type inside the block.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>smart-cast.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun printLength(obj: Any) {
+    if (obj is String) {
+        println(obj.length)
+    }
+}</code></pre></div>
+          <h4>Unsafe and safe casts</h4>
+          <p><code>as</code> forces a cast and throws <code>ClassCastException</code> if the object has the wrong type. <code>as?</code> attempts a cast and returns <code>null</code> if it fails.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>casting.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val obj: Any = "Kotlin"
+val str: String = obj as String // Works fine
+
+val numObj: Any = 123
+// val strFail: String = numObj as String // ClassCastException
+val safeStr: String? = numObj as? String // Returns null</code></pre></div>
+          <div class="table-wrap"><table><thead><tr><th>Keyword</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td><code>is</code></td><td>Checks the type and returns true or false.</td></tr>
+            <tr><td><code>as</code></td><td>Unsafe cast; throws <code>ClassCastException</code> if wrong.</td></tr>
+            <tr><td><code>as?</code></td><td>Safe cast; returns <code>null</code> if wrong.</td></tr>
+          </tbody></table></div>
+          <h4>Conversion functions</h4>
+          <p>For numbers and basic types, use conversion functions such as <code>toByte()</code>, <code>toShort()</code>, <code>toInt()</code>, <code>toLong()</code>, <code>toFloat()</code>, <code>toDouble()</code>, <code>toChar()</code>, and <code>toString()</code>.</p>
+
+          <h3>1.2.4 Collections in Kotlin</h3>
+          <p>A collection stores a group of related items. Kotlin provides read-only and mutable versions of its main collection types.</p>
+          <div class="table-wrap"><table><thead><tr><th>Collection</th><th>Read-only</th><th>Mutable</th></tr></thead><tbody>
+            <tr><td>List</td><td><code>listOf()</code></td><td><code>mutableListOf()</code></td></tr>
+            <tr><td>Set</td><td><code>setOf()</code></td><td><code>mutableSetOf()</code></td></tr>
+            <tr><td>Map</td><td><code>mapOf()</code></td><td><code>mutableMapOf()</code></td></tr>
+          </tbody></table></div>
+          <h4>Lists</h4>
+          <p>Lists are ordered collections that allow duplicate items. Elements are accessed by index, starting at 0.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>lists.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val subjects = listOf("Math", "Physics", "Math")
+println(subjects[0]) // Output: Math
+
+val dynamicList = mutableListOf("Java")
+dynamicList.add("Kotlin")</code></pre></div>
+          <h4>Sets</h4>
+          <p>Sets are unordered collections containing unique elements. Adding a duplicate has no effect.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>sets.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val uniqueNumbers = setOf(1, 2, 2, 3)
+println(uniqueNumbers) // Output: [1, 2, 3]
+
+val activeUsers = mutableSetOf("Alice", "Bob")
+activeUsers.add("Alice") // Ignored, already exists</code></pre></div>
+          <h4>Maps (dictionaries)</h4>
+          <p>Maps store key-value pairs. Keys must be unique, although multiple keys can point to the same value.</p>
+          <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>maps.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val grades = mapOf("Alice" to "A", "Bob" to "B")
+println(grades["Alice"]) // Output: A
+
+val inventory = mutableMapOf("Laptops" to 10)
+inventory["Monitors"] = 5 // Adds a new key-value pair</code></pre></div>
+
+      <h2 id="control-flow">1.3 Control Flow in Kotlin</h2>
+
+      <h3>1.3.1 Conditional Statements</h3>
+      <p>Kotlin provides <code>if</code> and <code>when</code> to control the flow of your program based on conditions.</p>
+
+      <h4>1. <code>if</code> / <code>else if</code> / <code>else</code></h4>
+      <p>This works like in Java or C++, executing code blocks based on boolean conditions.</p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>conditions.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val temperature = 25
+
+if (temperature &gt; 30) {
+  println("It's hot outside.")
+} else if (temperature &gt; 20) {
+  println("The weather is nice.")
+} else {
+  println("It's cold.")
+}</code></pre></div>
+      <div class="callout"><strong>Important Kotlin feature</strong><code>if</code> is an expression, meaning it can return a value. Because of this, Kotlin does not have a ternary operator such as <code>condition ? true : false</code>.</div>
+      <p><strong><code>if</code> as an expression:</strong></p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>if-expression.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val a = 10
+val b = 20
+// The last line of the block is the returned value
+val max = if (a &gt; b) a else b</code></pre></div>
+
+      <h4>2. <code>when</code> expression</h4>
+      <p><code>when</code> replaces the switch statement found in other languages. It is more concise and powerful.</p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>when-expression.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val dayNumber = 3
+
+when (dayNumber) {
+  1 -&gt; println("Monday")
+  2 -&gt; println("Tuesday")
+  3 -&gt; println("Wednesday")
+  4, 5 -&gt; println("Thursday or Friday") // Grouping multiple cases
+  in 6..7 -&gt; println("Weekend!")        // Checking ranges
+  else -&gt; println("Invalid day")        // 'else' acts like 'default'
+}</code></pre></div>
+
+      <h3>1.3.2 Loops</h3>
+      <p>Kotlin uses <code>for</code>, <code>while</code>, and <code>do-while</code> loops to repeat code.</p>
+
+      <h4>1. <code>for</code> loops</h4>
+      <p>The <code>for</code> loop in Kotlin iterates through anything that provides an iterator, such as arrays, lists, or ranges. Kotlin relies heavily on the <code>in</code> operator.</p>
+      <p><strong>Iterating over ranges:</strong></p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>ranges.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>// Prints 1, 2, 3, 4, 5 (inclusive)
+for (i in 1..5) {
+  println(i)
+}
+
+// Prints 1, 2, 3, 4 (excludes the last number)
+for (i in 1 until 5) {
+  println(i)
+}
+
+// Counting downwards: Prints 5, 4, 3, 2, 1
+for (i in 5 downTo 1) {
+  println(i)
+}
+
+// Skipping numbers: Prints 1, 3, 5
+for (i in 1..5 step 2) {
+  println(i)
+}</code></pre></div>
+      <p><strong>Iterating over collections (arrays/lists):</strong></p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>collections-loop.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val fruits = listOf("Apple", "Banana", "Cherry")
+for (fruit in fruits) {
+  println(fruit)
+}</code></pre></div>
+
+      <h4>2. <code>while</code> loops</h4>
+      <p>The <code>while</code> loop checks the condition before executing the code. If the condition is false to begin with, the code inside will never run.</p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>while-loop.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>var count = 5
+
+while (count &gt; 0) {
+  println(count)
+  count-- // Decreases count by 1
+}
+// Prints: 5, 4, 3, 2, 1</code></pre></div>
+
+      <h4>3. <code>do-while</code> loop</h4>
+      <p>The <code>do-while</code> loop executes the code first, and then checks the condition. This guarantees that the loop will run at least once, even if the condition is false.</p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>do-while-loop.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>var number = 10
+
+do {
+  println("This prints at least once!")
+  number++
+} while (number &lt; 5)
+// The condition is false, but it still printed the message once.</code></pre></div>
+
+            <h2 id="exception-handling">1.4 Exception Handling in Kotlin</h2>
+            <p>Exception handling in Kotlin is used to manage runtime errors so your application does not crash unexpectedly. Here are simple notes on the core keywords.</p>
+
+            <h3>1. <code>try</code>, <code>catch</code>, and <code>finally</code></h3>
+            <p>These three blocks work together to test code, handle errors, and execute cleanup tasks.</p>
+            <ul>
+            <li><strong><code>try</code>:</strong> Contains the code that might throw an exception.</li>
+            <li><strong><code>catch</code>:</strong> Contains the code that runs if a specific exception is thrown inside the <code>try</code> block. You can have multiple <code>catch</code> blocks.</li>
+            <li><strong><code>finally</code>:</strong> An optional block that always executes, whether an exception occurred or not. It is typically used for closing files, database connections, or cleaning up resources.</li>
+            </ul>
+            <p><strong>Basic example:</strong></p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>exceptions.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun divideNumbers(a: Int, b: Int) {
+        try {
+          val result = a / b
+          println("Result: $result")
+        } catch (e: ArithmeticException) {
+          println("Error: Cannot divide by zero!")
+        } finally {
+          println("Calculation attempt finished.")
+        }
+      }</code></pre></div>
+
+            <div class="callout"><strong>Important Kotlin feature</strong><code>try</code> is an expression in Kotlin, meaning it can return a value directly.</div>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>try-expression.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val number = try {
+        "10A".toInt()
+      } catch (e: NumberFormatException) {
+        0 // Fallback value if an error occurs
+      }</code></pre></div>
+
+            <h3>2. <code>throw</code></h3>
+            <p>The <code>throw</code> keyword is used to manually trigger an exception when a specific error condition is met in your logic.</p>
+            <p><strong>Example:</strong></p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>throw.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun checkAge(age: Int) {
+        if (age &lt; 18) {
+          throw IllegalArgumentException("Age must be 18 or older.")
+        }
+        println("Access granted.")
+      }</code></pre></div>
         </article>
+
+        <h2 id="comparison">Youtube Video Links for Reference</h2>
+        <ul>
+          <li><a href="https://youtu.be/PFVKjUUZMf8" target="_blank">Kotlin Overview, Why Kotlin over JAVA</a></li>
+          <li><a href="https://youtu.be/a2ueQgedZpU" target="_blank">Kotlin Collections (List, Set, Map)</a></li>
+        </ul>
+
+        <section class="video-card" aria-labelledby="video-title">
+          <h2 id="video-title">Unit 1.1 -1.3 video lesson</h2>
+          <p>Watch the companion lesson here without leaving the notes.</p>
+          <video controls preload="metadata">
+            <source src="video/Unit%201.1.mp4" type="video/mp4" />
+            Your browser does not support embedded video playback.
+          </video>
+        </section>
 
         <div class="next-unit"><p>Unit 1 is the Kotlin foundation for the Android units ahead.</p><a href="unit2.html">Next unit &rarr;</a></div>
       </div>

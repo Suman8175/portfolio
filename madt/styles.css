@@ -80,6 +80,10 @@ h1 { max-width: 720px; margin: 0; font-size: clamp(2.65rem, 6vw, 5.1rem); line-h
 pre { margin: 0; padding: 19px; overflow-x: auto; color: #eef0ec; font: .79rem/1.75 var(--mono); tab-size: 2; }
 .callout { margin: 25px 0; padding: 17px 20px; background: #f2eadb; border-left: 4px solid var(--accent); color: #51565a; }
 .callout strong { display: block; margin-bottom: 3px; color: var(--accent); font: .68rem var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.video-card { margin: 42px 0 8px; padding: 20px; background: var(--ink); border-radius: 7px; box-shadow: 6px 6px 0 rgba(32, 35, 41, .12); }
+.video-card h2 { margin: 0 0 5px; color: var(--white); font-size: 1.45rem; letter-spacing: -.025em; }
+.video-card p { margin: 0 0 16px; color: #b8bec3; font-size: .82rem; }
+.video-card video { display: block; width: 100%; max-height: 540px; background: #111417; border-radius: 4px; }
 .table-wrap { margin: 18px 0 27px; overflow-x: auto; border: 1px solid var(--line); border-radius: 5px; }
 table { width: 100%; min-width: 620px; border-collapse: collapse; background: rgba(255, 253, 248, .68); text-align: left; font-size: .82rem; }
 th, td { padding: 12px 14px; vertical-align: top; border-bottom: 1px solid var(--line); }
