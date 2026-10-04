@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MADT course notes: browse all seven units of mobile app development." />
+  <title>MADT Notes | Course Units</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .course-index { max-width: 950px; }
+    .course-index .hero { grid-template-columns: minmax(0, 1fr) 210px; }
+    .unit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; margin-top: 8px; }
+    .unit-card { position: relative; display: block; min-height: 155px; padding: 23px 24px 20px; background: rgba(255, 253, 248, .78); border: 1px solid var(--line); border-radius: 6px; transition: border-color .2s, box-shadow .2s, transform .2s; }
+    .unit-card::before { position: absolute; top: 0; bottom: 0; left: 0; width: 4px; background: var(--accent); border-radius: 6px 0 0 6px; content: ""; }
+    .unit-card:hover { border-color: #bbb2a2; box-shadow: 5px 5px 0 var(--line); transform: translateY(-2px); }
+    .unit-card-number { display: block; margin-bottom: 12px; color: var(--accent); font: .7rem var(--mono); letter-spacing: .12em; }
+    .unit-card h2 { margin: 0 0 8px; font-size: 1.35rem; }
+    .unit-card p { margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; }
+    .unit-card-arrow { position: absolute; right: 22px; bottom: 18px; color: var(--accent); font: 1.15rem var(--mono); }
+    .course-note { margin-top: 28px; }
+    @media (max-width: 760px) {
+      .course-index .hero { grid-template-columns: 1fr; }
+      .unit-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html" aria-label="MADT notes home"><span class="brand-mark">M</span><span><strong>MADT notes</strong><small>Mobile app development</small></span></a>
+      <p class="side-kicker">Course map / 7 units</p>
+      <nav class="unit-nav" aria-label="MADT units">
+        <a class="unit-link" href="unit1.html"><span class="unit-number">01</span><span class="unit-name">Kotlin foundations</span></a>
+        <a class="unit-link" href="unit2.html"><span class="unit-number">02</span><span class="unit-name">Java &amp; OOPS</span></a>
+        <a class="unit-link" href="unit3.html"><span class="unit-number">03</span><span class="unit-name">Android basics</span></a>
+        <a class="unit-link" href="unit4.html"><span class="unit-number">04</span><span class="unit-name">User interface</span></a>
+        <a class="unit-link" href="unit5.html"><span class="unit-number">05</span><span class="unit-name">Advanced topics</span></a>
+        <a class="unit-link" href="unit6.html"><span class="unit-number">06</span><span class="unit-name">Graphics &amp; media</span></a>
+        <a class="unit-link" href="unit7.html"><span class="unit-number">07</span><span class="unit-name">Package &amp; monetize</span></a>
+      </nav>
+      <div class="sidebar-footer">Pokhara University &middot; BCA<span>keep learning / keep shipping</span></div>
+    </aside>
+
+    <main class="main">
+      <div class="topline"><span><span class="crumb">MADT</span> / course map</span><span class="status">7 units ready</span></div>
+      <div class="content course-index">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Mobile application development</p>
+            <h1>Build from the ground up.</h1>
+            <p class="hero-copy">Explore all seven chapters of the MADT course, from Kotlin foundations to packaging and monetizing Android applications.</p>
+          </div>
+          <div class="unit-stamp"><strong>07</strong><span>Units to ship.</span><small>MADT COURSE MAP</small></div>
+        </header>
+
+        <div class="reading-tools">
+          <p class="section-label">Choose a chapter</p>
+        </div>
+
+        <section class="unit-grid" aria-label="MADT chapters">
+          <a class="unit-card" href="unit1.html">
+            <span class="unit-card-number">UNIT 01 / FOUNDATIONS</span>
+            <h2>Kotlin foundations</h2>
+            <p>Learn the modern language at the heart of Android development.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="unit-card" href="unit2.html">
+            <span class="unit-card-number">UNIT 02 / OBJECTS</span>
+            <h2>Java &amp; OOPS</h2>
+            <p>Understand classes, inheritance, polymorphism, and reusable design.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="unit-card" href="unit3.html">
+            <span class="unit-card-number">UNIT 03 / ANDROID</span>
+            <h2>Android basics</h2>
+            <p>Move from language fundamentals into the Android platform.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="unit-card" href="unit4.html">
+            <span class="unit-card-number">UNIT 04 / INTERFACE</span>
+            <h2>User interface</h2>
+            <p>Design screens and interactions that make mobile apps useful.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="unit-card" href="unit5.html">
+            <span class="unit-card-number">UNIT 05 / ADVANCED</span>
+            <h2>Advanced topics</h2>
+            <p>Build deeper platform knowledge for more capable applications.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="unit-card" href="unit6.html">
+            <span class="unit-card-number">UNIT 06 / MEDIA</span>
+            <h2>Graphics &amp; media</h2>
+            <p>Work with visual content, audio, video, and richer app experiences.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="unit-card" href="unit7.html">
+            <span class="unit-card-number">UNIT 07 / RELEASE</span>
+            <h2>Package &amp; monetize</h2>
+            <p>Prepare applications for release and explore ways to monetize them.</p>
+            <span class="unit-card-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </section>
+
+        <div class="callout course-note"><strong>Start here</strong>Begin with Unit 1 if you are new to Android development, or jump directly to any chapter from the course map.</div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

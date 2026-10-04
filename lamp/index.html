@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slingshot Lamp — Suman Devkota</title>
+    <meta name="description" content="Nobody touch the lamp. An interactive toy integrated into Suman Devkota's portfolio." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;700&family=Hanken+Grotesk:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grid"></div>
+    <main class="scene">
+      <span class="time">LATE NIGHT · INTERACTIVE PLAYGROUND</span>
+      <h1>Dare to break <br />the <em>lamp</em>.</h1>
+      <p>
+        <span class="desk">Use the switch to turn the bulb on and off.<br />Use the slingshot to hit the shade, the bulb or the switch.</span>
+        <span class="mob">Flip the switch. Pull back the slingshot to hit the shade, bulb or switch. Drag the shade to swing it.</span>
+      </p>
+    </main>
+
+    <canvas id="c"></canvas>
+
+    <div class="hud">
+      <div class="tl">
+        <a href="../index.html">← back to portfolio</a><br />
+        slingshot-lamp · <b id="state">on</b><br />
+        shots <b id="shots">0</b> · bulbs <b id="bulbs">0</b>
+      </div>
+      <button id="sound" class="tr" type="button">sound: on</button>
+
+      <div id="switch" class="switch" role="switch" aria-checked="true" aria-label="Light switch" tabindex="0">
+        <span class="screw t"></span>
+        <span class="engrave on">ON</span>
+        <div class="slot"><div class="lever"></div></div>
+        <span class="pilot"></span>
+        <span class="engrave off">OFF</span>
+        <span class="screw b"></span>
+      </div>
+
+      <button id="reset" class="reset" type="button" hidden>replace bulb 💡</button>
+      <div class="hint">flip the switch · pull the pebble back and let go · grab the shade to swing it 🎯</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
