@@ -12,17 +12,41 @@
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="unit1.html" aria-label="MADT notes home"><span class="brand-mark">M</span><span><strong>MADT notes</strong><small>Mobile app development</small></span></a>
+    <header class="mobile-header">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a class="mobile-brand" href="index.html">
+        <span class="brand-mark">M</span>
+        <strong>MADT notes</strong>
+      </a>
+    </header>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a class="brand" href="index.html" aria-label="MADT notes home">
+          <span class="brand-mark">M</span>
+          <span class="brand-text"><strong>MADT notes</strong><small>Mobile app development</small></span>
+        </a>
+        <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Fold / Expand sidebar" title="Fold / Expand sidebar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <path d="M9 3v18"/>
+            <path d="m14 9-3 3 3 3"/>
+          </svg>
+        </button>
+      </div>
       <p class="side-kicker">Course map / 7 units</p>
       <nav class="unit-nav" aria-label="MADT units">
-        <a class="unit-link" href="unit1.html"><span class="unit-number">01</span><span class="unit-name">Kotlin foundations</span></a>
-        <a class="unit-link" href="unit2.html"><span class="unit-number">02</span><span class="unit-name">Java &amp; OOPS</span></a>
-        <a class="unit-link" href="unit3.html"><span class="unit-number">03</span><span class="unit-name">Android basics</span></a>
-        <a class="unit-link" href="unit4.html"><span class="unit-number">04</span><span class="unit-name">User interface</span></a>
-        <a class="unit-link" href="unit5.html"><span class="unit-number">05</span><span class="unit-name">Advanced topics</span></a>
-        <a class="unit-link" href="unit6.html"><span class="unit-number">06</span><span class="unit-name">Graphics &amp; media</span></a>
-        <a class="unit-link" href="unit7.html"><span class="unit-number">07</span><span class="unit-name">Package &amp; monetize</span></a>
+        <a class="unit-link" href="unit1.html" data-title="01: Kotlin foundations"><span class="unit-number">01</span><span class="unit-name">Kotlin foundations</span></a>
+        <a class="unit-link" href="unit2.html" data-title="02: Java &amp; OOPS"><span class="unit-number">02</span><span class="unit-name">Java &amp; OOPS</span></a>
+        <a class="unit-link" href="unit3.html" data-title="03: Android basics"><span class="unit-number">03</span><span class="unit-name">Android basics</span></a>
+        <a class="unit-link" href="unit4.html" data-title="04: User interface"><span class="unit-number">04</span><span class="unit-name">User interface</span></a>
+        <a class="unit-link" href="unit5.html" data-title="05: Advanced topics"><span class="unit-number">05</span><span class="unit-name">Advanced topics</span></a>
+        <a class="unit-link" href="unit6.html" data-title="06: Graphics &amp; media"><span class="unit-number">06</span><span class="unit-name">Graphics &amp; media</span></a>
+        <a class="unit-link" href="unit7.html" data-title="07: Package &amp; monetize"><span class="unit-number">07</span><span class="unit-name">Package &amp; monetize</span></a>
       </nav>
       <div class="sidebar-footer">Pokhara University &middot; BCA<span>keep learning / keep shipping</span></div>
     </aside>
@@ -43,6 +67,7 @@
             <a class="topic-card" href="#syntax"><h3>1.2 Basic Syntax and Structure</h3><p>Kotlin Basic Syntax and Structure.</p></a>
             <a class="topic-card" href="#control-flow"><h3>1.3 Control Flow in Kotlin</h3><p>Control flow statements in Kotlin.</p></a>
             <a class="topic-card" href="#exception-handling"><h3>1.4 Exception Handling in Kotlin</h3><p>Try, Catch, Finally and Throw statements</p></a>
+            <a class="topic-card" href="#functions"><h3>1.5 Functions in Kotlin</h3><p>Declare functions, return values, and use default parameters.</p></a>
           </div>
 
           <h2 id="introduction">1.1 Introduction to Kotlin</h2>
@@ -291,7 +316,7 @@ if (temperature &gt; 30) {
 } else {
   println("It's cold.")
 }</code></pre></div>
-      <div class="callout"><strong>Important Kotlin feature</strong><code>if</code> is an expression, meaning it can return a value. Because of this, Kotlin does not have a ternary operator such as <code>condition ? true : false</code>.</div>
+      <!-- <div class="callout"><strong>Important Kotlin feature</strong><code>if</code> is an expression, meaning it can return a value. Because of this, Kotlin does not have a ternary operator such as <code>condition ? true : false</code>.</div> -->
       <p><strong><code>if</code> as an expression:</strong></p>
       <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>if-expression.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val a = 10
 val b = 20
@@ -312,10 +337,10 @@ when (dayNumber) {
 }</code></pre></div>
 
       <h3>1.3.2 Loops</h3>
-      <p>Kotlin uses <code>for</code>, <code>while</code>, and <code>do-while</code> loops to repeat code.</p>
+      <p>Loops are used to repeatedly execute a series of statements until a specified/given condition is met, or the loop is broken with the break statement. Kotlin provides mainly four types of loops: <code>for</code>, <code>while</code>, <code>do-while</code> and <code>forEach</code> loops to repeat code.</p>
 
       <h4>1. <code>for</code> loops</h4>
-      <p>The <code>for</code> loop in Kotlin iterates through anything that provides an iterator, such as arrays, lists, or ranges. Kotlin relies heavily on the <code>in</code> operator.</p>
+      <p>The <code>for</code> loop in Kotlin iterates through anything that provides an iterator, such as arrays, lists, or ranges. A for loop is a condition iterative statement that checks for a specific condition and then constantly executes a block of code as long as those criteria are met.</p>
       <p><strong>Iterating over ranges:</strong></p>
       <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>ranges.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>// Prints 1, 2, 3, 4, 5 (inclusive)
 for (i in 1..5) {
@@ -343,7 +368,7 @@ for (fruit in fruits) {
 }</code></pre></div>
 
       <h4>2. <code>while</code> loops</h4>
-      <p>The <code>while</code> loop checks the condition before executing the code. If the condition is false to begin with, the code inside will never run.</p>
+      <p> <code>While</code> loops are used to repeatedly cycle a block of code as long as the specified condition returns true. The condition is verified first, and if it is true, then block of code is run. </p>
       <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>while-loop.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>var count = 5
 
 while (count &gt; 0) {
@@ -362,8 +387,22 @@ do {
 } while (number &lt; 5)
 // The condition is false, but it still printed the message once.</code></pre></div>
 
+ <h4>4. <code>forEach</code> loop</h4>
+      <p>The <code>forEach</code> method in Kotlin allows you to access elements in a collection or list and perform actions on them.</p>
+      <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>forEach-loop.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>
+           var arr1 = listOf("Suman", "Rahul", "Rajesh")
+    arr1.forEach{
+        println("Mr. ${it}")
+    }
+
+    val fruits = listOf("Apple", "Banana", "Cherry")
+    fruits.forEach { fruit ->
+        println(fruit)
+    }
+      </code></pre></div>
+
             <h2 id="exception-handling">1.4 Exception Handling in Kotlin</h2>
-            <p>Exception handling in Kotlin is used to manage runtime errors so your application does not crash unexpectedly. Here are simple notes on the core keywords.</p>
+            <p>Exception handling is a technique which handles the runtime problems and maintains the flow of the program execution. There are four different keywords used in exception handling. They are: <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>throw</code>.</p>
 
             <h3>1. <code>try</code>, <code>catch</code>, and <code>finally</code></h3>
             <p>These three blocks work together to test code, handle errors, and execute cleanup tasks.</p>
@@ -384,7 +423,6 @@ do {
         }
       }</code></pre></div>
 
-            <div class="callout"><strong>Important Kotlin feature</strong><code>try</code> is an expression in Kotlin, meaning it can return a value directly.</div>
             <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>try-expression.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val number = try {
         "10A".toInt()
       } catch (e: NumberFormatException) {
@@ -400,6 +438,53 @@ do {
         }
         println("Access granted.")
       }</code></pre></div>
+
+            <h2 id="functions">1.5 Functions in Kotlin</h2>
+            <p>A function in Kotlin is a reusable block of code designed to perform a single, specific task. Functions are declared using the <code>fun</code> keyword, followed by the function name, parameters in parentheses, an optional return type, and the function body enclosed in curly braces.</p>
+            <p><strong>Advantages:</strong></p>
+            <ul>
+              <li><strong>Reusability:</strong> Write code once and call it multiple times.</li>
+              <li><strong>Modularity:</strong> Break down complex problems into smaller, manageable, and testable pieces.</li>
+              <li><strong>Readability:</strong> Well-named functions make the main codebase read more like natural language.</li>
+            </ul>
+
+            <h3> Function Declaration and Parameters</h3>
+            <p>A function declaration includes the <code>fun</code> keyword, the function name, and any parameters needed by the function. Parameters are written as <code>name: Type</code> pairs inside the parentheses.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>greet.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun greet(name: String) {
+    println("Hello, $name!")
+}</code></pre></div>
+
+            <h3> Return Types</h3>
+            <p>The return type dictates the specific type of data, such as <code>Int</code>, <code>String</code>, or <code>Boolean</code>, that a function passes back to its caller.</p>
+            <ul>
+              <li><strong>Explicit return type:</strong> Defined after the parameter list and separated by a colon. The function uses the <code>return</code> keyword to send back a value of that type.</li>
+              <li><strong><code>Unit</code> (no return value):</strong> Used when a function does not return a useful value. It is equivalent to <code>void</code> in Java or C, and the <code>: Unit</code> declaration is usually omitted.</li>
+              <li><strong>Single-expression functions:</strong> When a function contains one expression, you can omit the curly braces, the <code>return</code> keyword, and the explicit return type. Kotlin infers the return type using the <code>=</code> operator.</li>
+            </ul>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>return-types.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>// Explicit return type
+fun calculateArea(length: Int, width: Int): Int {
+    return length * width
+}
+
+// Single-expression function; return type Int is inferred
+fun calculatePerimeter(length: Int, width: Int) = 2 * (length + width)</code></pre></div>
+
+            <h3> Default Values in Parameters</h3>
+            <p>Kotlin allows you to assign a default value to a function parameter. If a caller invokes the function without providing an argument for that parameter, Kotlin automatically uses the default value.</p>
+            <p><strong>Advantages:</strong></p>
+            <ul>
+              <li><strong>Eliminates overloading:</strong> Replaces the need to write multiple versions of the same function with different parameter counts.</li>
+              <li><strong>Cleaner calls:</strong> Simplifies function calls when standard baseline configurations are acceptable.</li>
+              <li><strong>Named arguments:</strong> When combined with named arguments, you can skip intermediate default parameters and change only the values you need.</li>
+            </ul>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>default-parameters.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>// 'role' has a default value of "User"
+fun createUser(username: String, role: String = "User") {
+    println("Created $role: $username")
+}
+
+// Usage
+createUser("alice_99")                  // Output: Created User: alice_99
+createUser("admin_bob", "Admin")        // Output: Created Admin: admin_bob</code></pre></div>
         </article>
 
         <h2 id="comparison">Youtube Video Links for Reference</h2>
