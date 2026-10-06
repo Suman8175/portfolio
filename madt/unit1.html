@@ -68,6 +68,8 @@
             <a class="topic-card" href="#control-flow"><h3>1.3 Control Flow in Kotlin</h3><p>Control flow statements in Kotlin.</p></a>
             <a class="topic-card" href="#exception-handling"><h3>1.4 Exception Handling in Kotlin</h3><p>Try, Catch, Finally and Throw statements</p></a>
             <a class="topic-card" href="#functions"><h3>1.5 Functions in Kotlin</h3><p>Declare functions, return values, and use default parameters.</p></a>
+            <a class="topic-card" href="#lambda-expressions"><h3>1.5.1 Lambda Expressions</h3><p>Write anonymous functions and pass behavior as a value.</p></a>
+            <a class="topic-card" href="#higher-order-functions"><h3>1.5.2 Higher-Order Functions</h3><p>Pass functions as arguments and return them from other functions.</p></a>
           </div>
 
           <h2 id="introduction">1.1 Introduction to Kotlin</h2>
@@ -485,6 +487,109 @@ fun createUser(username: String, role: String = "User") {
 // Usage
 createUser("alice_99")                  // Output: Created User: alice_99
 createUser("admin_bob", "Admin")        // Output: Created Admin: admin_bob</code></pre></div>
+
+            <h3 id="lambda-expressions">1.5.1 Lambda Expressions in Kotlin</h3>
+            <h4>Introduction</h4>
+            <p>A lambda expression is a short way of writing a function without explicitly declaring a function name. A lambda is an <strong>anonymous function</strong> that can be stored in a variable, passed as an argument, or returned from another function.</p>
+            <p>Lambda expressions are especially useful when we need to pass a small piece of behavior to another function. They are common in collection operations such as <code>filter</code> and <code>map</code>, and in Android callbacks such as click listeners.</p>
+
+            <h4>Example</h4>
+            <p>First, write the operation as a normal function:</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>normal-function.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun add(a: Int, b: Int): Int {
+    return a + b
+}</code></pre></div>
+            <p>The same operation can be written using a lambda:</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>lambda.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val add = { a: Int, b: Int -&gt; a + b }
+
+println(add(2, 3)) // 5</code></pre></div>
+            <p>Here:</p>
+            <ul>
+              <li><code>a</code> and <code>b</code> are parameters.</li>
+              <li><code>-&gt;</code> separates the parameters from the lambda body.</li>
+              <li><code>a + b</code> is the result of the lambda; the last expression is returned automatically.</li>
+              <li><code>add</code> stores the lambda and can be called like a function.</li>
+            </ul>
+
+            <div class="callout"><strong>Classroom rule: 🐀 RAT</strong><span><strong>R — Remove</strong> the function name. <strong>A — Arrow</strong> replaces the return type and separates the parameters from the body. <strong>T — Throw</strong> the parentheses around the whole expression to form the lambda body.</span></div>
+            <p>Use RAT to see how a named function becomes a lambda:</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>rat-rule.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+
+// R: Remove the function name and fun keyword
+(a: Int, b: Int): Int {
+    return a + b
+}
+
+// A: Replace the return type and return syntax with an arrow
+(a: Int, b: Int) -&gt; {
+    a + b
+}
+
+// T: Throw parentheses around the lambda body
+{ a: Int, b: Int -&gt;
+    a + b
+}</code></pre></div>
+
+            <h4>Type inference and the implicit <code>it</code> parameter</h4>
+            <p>Kotlin can often infer parameter and return types from context. A lambda with one parameter can also use the implicit name <code>it</code>. Use an explicit parameter name when it makes the code clearer.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>inferred-lambda.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val numbers = listOf(1, 2, 3, 4)
+
+val doubled = numbers.map { it * 2 }
+val even = numbers.filter { number -&gt; number % 2 == 0 }</code></pre></div>
+
+          
+            <div class="callout"><strong>Remember</strong><span>A lambda is a value. Store it in a <code>val</code>, pass it to a function, or return it when you want to make behavior reusable and configurable.</span></div>
+
+            <h3 id="higher-order-functions">1.5.2 Higher-Order Functions in Kotlin</h3>
+            <h4>Introduction</h4>
+            <p>A <strong>higher-order function</strong> is a function that takes another function as a parameter, returns a function, or does both.</p>
+            <p>Kotlin treats functions as <strong>first-class citizens</strong>. This means functions can be stored in variables, passed as arguments, and returned from other functions just like values such as numbers or strings.</p>
+
+            <h4>Passing a function as a parameter</h4>
+            <p>In the example below, <code>operation</code> is a function parameter. The type <code>(Int, Int) -&gt; Int</code> describes a function that takes two <code>Int</code> values and returns an <code>Int</code>.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>higher-order.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun calculate(
+    a: Int,
+    b: Int,
+    operation: (Int, Int) -&gt; Int
+): Int {
+    return operation(a, b)
+}
+
+val sum = calculate(10, 5) { x, y -&gt; x + y }
+val difference = calculate(10, 5) { x, y -&gt; x - y }
+
+println(sum)        // 15
+println(difference) // 5</code></pre></div>
+            <ul>
+              <li><code>operation</code> is a function parameter.</li>
+              <li><code>(Int, Int) -&gt; Int</code> means the function takes two <code>Int</code> values and returns an <code>Int</code>.</li>
+              <li><code>operation(a, b)</code> invokes the function passed to <code>calculate</code>.</li>
+              <li>The same <code>calculate</code> function can perform different operations.</li>
+            </ul>
+
+            <h4>Returning a function</h4>
+            <p>A higher-order function can also create and return another function. The returned function remembers the value captured from its surrounding scope; this is called a <strong>closure</strong>.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>return-function.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>fun makeMultiplier(factor: Int): (Int) -&gt; Int {
+    return { number -&gt; number * factor }
+}
+
+val triple = makeMultiplier(3)
+println(triple(4)) // 12</code></pre></div>
+            <p>Here, <code>makeMultiplier</code> returns a function of type <code>(Int) -&gt; Int</code>. The returned lambda captures <code>factor</code>, so <code>triple</code> continues to use the value <code>3</code> after <code>makeMultiplier</code> has finished.</p>
+<div class="callout"><strong>How it works</strong><span><strong>Step 1:</strong> <code>makeMultiplier(3)</code> sets <code>factor</code> to <code>3</code> and returns a function that behaves like <code>{ number -&gt; number * 3 }</code>. Therefore, <code>triple</code> stores that function. <strong>Step 2:</strong> <code>triple(4)</code> sets <code>number</code> to <code>4</code>, so the function calculates <code>4 * 3 = 12</code>.</span></div>
+
+<h4>Common Kotlin examples</h4>
+            <p>Many Kotlin standard-library functions are higher-order functions. They accept lambdas to describe what should happen to each item.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>collection-operations.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>val numbers = listOf(1, 2, 3, 4, 5)
+
+val squares = numbers.map { number -&gt; number * number }
+val evenNumbers = numbers.filter { it % 2 == 0 }
+
+println(squares)      // [1, 4, 9, 16, 25]
+println(evenNumbers)  // [2, 4]</code></pre></div>
+            <p>Android also uses this pattern for event callbacks, such as passing a lambda to <code>setOnClickListener</code> to define what should happen when a button is tapped.</p>
+            <div class="callout"><strong>Key idea</strong><span>A lambda is the function value; a higher-order function is the function that receives or returns that value. Together, they make behavior reusable, configurable, and easy to compose.</span></div>
         </article>
 
         <h2 id="comparison">Youtube Video Links for Reference</h2>
