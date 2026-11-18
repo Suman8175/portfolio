@@ -9,6 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .version-history { margin: 42px 0 46px; padding: 25px; background: rgba(255, 253, 248, .58); border: 1px solid var(--line, #ded7c9); border-radius: 8px; }
+    .version-history-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 25px; }
+    .version-history-heading .eyebrow { margin-bottom: 8px; }
+    .version-history-heading h3 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); }
+    .version-history-intro { max-width: 330px; margin: 0; color: var(--ink-soft, #656b72); font-size: .8rem; line-height: 1.55; }
+    .version-timeline { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 29px 12px; }
+    .version-node { position: relative; z-index: 1; display: flex; align-items: center; flex-direction: column; min-width: 0; padding: 0 3px; color: var(--ink, #202329); background: transparent; border: 0; text-align: center; }
+    .version-icon { display: grid; width: 62px; height: 62px; place-items: center; color: var(--teal, #4d8984); background: var(--white, #fffdf8); border: 2px solid var(--accent-pale, #f5d6c8); border-radius: 50%; box-shadow: 0 0 0 5px rgba(255, 253, 248, .9); font: .78rem var(--mono, monospace); }
+    .version-node strong { max-width: 125px; margin-top: 10px; font-size: .76rem; line-height: 1.25; }
+    .version-node small { margin-top: 3px; color: var(--ink-soft, #656b72); font: .65rem var(--mono, monospace); }
+    .version-detail { display: none; margin-top: 28px; padding: 18px 20px; background: var(--paper-deep, #eee8db); border-left: 4px solid var(--accent, #e45d3c); border-radius: 4px; }
+    .version-detail.is-open { display: block; }
+    .version-detail h4 { margin: 0 0 5px; font-size: 1.25rem; }
+    .version-detail p { margin: 0; font-size: .88rem; }
+    @media (max-width: 760px) {
+      .version-history { padding: 19px 15px; }
+      .version-history-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .version-history-intro { max-width: none; }
+      .version-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 10px; }
+      .version-node strong { max-width: 145px; }
+    }
+  </style>
 </head>
 <body>
   <div class="app-shell">
