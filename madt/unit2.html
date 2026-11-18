@@ -1,3 +1,193 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="MADT Unit 2 notes: Java Architecture and OOPS."><title>Unit 2: Java Architecture and OOPS | MADT Notes</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
-<body><div class="app-shell"><header class="mobile-header"><button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a class="mobile-brand" href="index.html"><span class="brand-mark">M</span><strong>MADT notes</strong></a></header><div class="sidebar-backdrop" id="sidebar-backdrop"></div><aside class="sidebar" id="sidebar"><div class="sidebar-header"><a class="brand" href="index.html" aria-label="MADT notes home"><span class="brand-mark">M</span><span class="brand-text"><strong>MADT notes</strong><small>Mobile app development</small></span></a><button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Fold / Expand sidebar" title="Fold / Expand sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9-3 3 3 3"/></svg></button></div><p class="side-kicker">Course map / 7 units</p><nav class="unit-nav" aria-label="MADT units"><a class="unit-link" href="unit1.html" data-title="01: Kotlin foundations"><span class="unit-number">01</span><span class="unit-name">Kotlin foundations</span></a><a class="unit-link" href="unit2.html" data-title="02: Java &amp; OOPS"><span class="unit-number">02</span><span class="unit-name">Java &amp; OOPS</span></a><a class="unit-link" href="unit3.html" data-title="03: Android basics"><span class="unit-number">03</span><span class="unit-name">Android basics</span></a><a class="unit-link" href="unit4.html" data-title="04: User interface"><span class="unit-number">04</span><span class="unit-name">User interface</span></a><a class="unit-link" href="unit5.html" data-title="05: Advanced topics"><span class="unit-number">05</span><span class="unit-name">Advanced topics</span></a><a class="unit-link" href="unit6.html" data-title="06: Graphics &amp; media"><span class="unit-number">06</span><span class="unit-name">Graphics &amp; media</span></a><a class="unit-link" href="unit7.html" data-title="07: Package &amp; monetize"><span class="unit-number">07</span><span class="unit-name">Package &amp; monetize</span></a></nav><div class="sidebar-footer">Pokhara University &middot; BCA<span>keep learning / keep shipping</span></div></aside><main class="main"><div class="topline"><span><span class="crumb">MADT</span> / unit 02</span><span class="status">notes in progress</span></div><div class="content"><header class="hero"><div><p class="eyebrow">Unit 02 / 7 hours</p><h1>Java Architecture and OOPS</h1><p class="hero-copy">The object-oriented foundation behind Android code: classes, behavior, reuse, contracts, and flexible design.</p></div><div class="unit-stamp"><strong>02</strong><span>Think in objects.</span><small>JAVA + OOPS</small></div></header><div class="reading-tools"><p class="section-label">Topics in this unit</p><label class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="topic-search" type="search" placeholder="Filter topics" aria-label="Filter topics"></label></div><section class="notes-body"><div class="topic-index"><article class="topic-card"><h3>Java classes and objects</h3><p>Model data and behavior using Java's core building blocks.</p></article><article class="topic-card"><h3>Methods and instances</h3><p>Create behavior with methods and understand instance state.</p></article><article class="topic-card"><h3>Inheritance</h3><p>Reuse and extend behavior through parent and child classes.</p></article><article class="topic-card"><h3>Polymorphism</h3><p>Write flexible code that can work with related object types.</p></article><article class="topic-card"><h3>Interfaces</h3><p>Define contracts that different classes can implement.</p></article><article class="topic-card"><h3>Abstract classes</h3><p>Share common structure while leaving details to subclasses.</p></article></div><p class="empty-state" id="empty-state">No topic matches that search yet.</p><div class="callout"><strong>Notes status</strong>This unit is mapped to the course outline and ready for detailed examples, diagrams, and exercises.</div></section><div class="next-unit"><p>Next: build Android applications from these language foundations.</p><a href="unit3.html">Next unit &rarr;</a></div></div></main></div><script src="app.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MADT Unit 2 notes: Android OS and basics.">
+  <title>Unit 2: Android OS and basics | MADT Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="mobile-header">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a class="mobile-brand" href="index.html"><span class="brand-mark">M</span><strong>MADT notes</strong></a>
+    </header>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a class="brand" href="index.html" aria-label="MADT notes home"><span class="brand-mark">M</span><span class="brand-text"><strong>MADT notes</strong><small>Mobile app development</small></span></a>
+        <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Fold / Expand sidebar" title="Fold / Expand sidebar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9-3 3 3 3"/></svg>
+        </button>
+      </div>
+      <p class="side-kicker">Course map / 7 units</p>
+      <nav class="unit-nav" aria-label="MADT units">
+        <a class="unit-link" href="unit1.html" data-title="01: Kotlin foundations"><span class="unit-number">01</span><span class="unit-name">Kotlin foundations</span></a>
+        <a class="unit-link" href="unit2.html" data-title="02: Android OS and basics"><span class="unit-number">02</span><span class="unit-name">Android OS and basics</span></a>
+        <a class="unit-link" href="unit3.html" data-title="03: Android basics"><span class="unit-number">03</span><span class="unit-name">Android basics</span></a>
+        <a class="unit-link" href="unit4.html" data-title="04: User interface"><span class="unit-number">04</span><span class="unit-name">User interface</span></a>
+        <a class="unit-link" href="unit5.html" data-title="05: Advanced topics"><span class="unit-number">05</span><span class="unit-name">Advanced topics</span></a>
+        <a class="unit-link" href="unit6.html" data-title="06: Graphics &amp; media"><span class="unit-number">06</span><span class="unit-name">Graphics &amp; media</span></a>
+        <a class="unit-link" href="unit7.html" data-title="07: Package &amp; monetize"><span class="unit-number">07</span><span class="unit-name">Package &amp; monetize</span></a>
+      </nav>
+      <div class="sidebar-footer">Pokhara University &middot; BCA<span>keep learning / keep shipping</span></div>
+    </aside>
+    <main class="main">
+      <div class="topline"><span><span class="crumb">MADT</span> / unit 02</span><span class="status">notes in progress</span></div>
+      <div class="content">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Unit 02 / 7 hours</p>
+            <h1>Android OS and basics</h1>
+            <p class="hero-copy">Understand Android's operating system, history, features, advantages, and disadvantages.</p>
+          </div>
+          <div class="unit-stamp"><strong>02</strong><span>Build for Android.</span><small>ANDROID OS</small></div>
+        </header>
+        <div class="reading-tools">
+          <p class="section-label">Topics in this unit</p>
+          <label class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="topic-search" type="search" placeholder="Filter topics" aria-label="Filter topics"></label>
+        </div>
+        <section class="notes-body">
+          <div class="topic-index">
+            <article class="topic-card"><h3>2.1 Introduction to Android</h3><p>Android is an open-source, Linux-based mobile operating system developed by Google.</p></article>
+            <article class="topic-card"><h3>2.1.1 Brief history</h3><p>Key events from Android Inc. through Android 17.</p></article>
+            <article class="topic-card"><h3>2.1.2 Android Market Share and Impact in Mobile Development</h3><p>Android's market share and impact on mobile development.</p></article>
+            <article class="topic-card"><h3>2.1.3. Features of Android</h3><p>Connectivity, storage, media, hardware, multitasking, security, UI, and more.</p></article>
+            <article class="topic-card"><h3>2.1.4. Advantages (Pros) of Android</h3><p>Open source, device choice, customization, app ecosystem, and developer-friendly tools.</p></article>
+            <article class="topic-card"><h3>2.1.5. Disadvantages (Cons) of Android</h3><p>Fragmentation, uneven updates, malware risk, bloatware, privacy concerns, and more.</p></article>
+          </div>
+          <p class="empty-state" id="empty-state">No topic matches that search yet.</p>
+          <div class="notes-content">
+            <h2>2.1 Introduction to Android</h2>
+            <p>Android is an open-source, Linux-based mobile operating system developed by Google. It runs on smartphones, tablets, smart TVs (Google TV), wearables (Wear OS), cars (Android Auto / Automotive) and many other devices. It is the most widely used mobile operating system in the world.</p>
+            <p><strong>Definition (for exams):</strong> Android is a software stack for mobile devices that includes an operating system (based on the Linux kernel), middleware and key applications, released as open source by Google under the Apache License 2.0.</p>
+
+            <h3>2.1.1 Brief history</h3>
+            <table>
+              <thead><tr><th>Year</th><th>Event</th></tr></thead>
+              <tbody>
+                <tr><td>2003</td><td>Android Inc. founded in Palo Alto, USA, by Andy Rubin, Rich Miner, Nick Sears and Chris White</td></tr>
+                <tr><td>2005</td><td>Google acquires Android Inc.</td></tr>
+                <tr><td>2007</td><td>Open Handset Alliance (OHA) formed by Google and other companies; Android announced</td></tr>
+                <tr><td>2008</td><td>Android 1.0 released; first Android phone: HTC Dream (T-Mobile G1)</td></tr>
+                <tr><td>2009–2018</td><td>Versions named after desserts: Cupcake, Donut, Eclair, … KitKat, Lollipop, Marshmallow, Nougat, Oreo, Pie</td></tr>
+                <tr><td>2019</td><td>Android 10: Google drops public dessert names and uses only version numbers</td></tr>
+                <tr><td>2026</td><td>Android 17 released on 16 June 2026 (latest major version at the time of writing)</td></tr>
+              </tbody>
+            </table>
+
+            <section class="version-history" aria-labelledby="version-history-title">
+              <div class="version-history-heading">
+                <div>
+                  <p class="eyebrow">Tap a version to explore</p>
+                  <h3 id="version-history-title">Android version timeline</h3>
+                </div>
+                <p class="version-history-intro">From dessert names to numbered releases, each milestone added a new part of the Android experience.</p>
+              </div>
+              <div class="version-timeline">
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="cupcake"><span class="version-icon">1.5</span><strong>Cupcake</strong><small>2009</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="donut"><span class="version-icon">1.6</span><strong>Donut</strong><small>2009</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="eclair"><span class="version-icon">2.0</span><strong>Eclair</strong><small>2009</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="froyo"><span class="version-icon">2.2</span><strong>Froyo</strong><small>2010</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="gingerbread"><span class="version-icon">2.3</span><strong>Gingerbread</strong><small>2010</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="honeycomb"><span class="version-icon">3.0</span><strong>Honeycomb</strong><small>2011</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="ice-cream-sandwich"><span class="version-icon">4.0</span><strong>Ice Cream Sandwich</strong><small>2011</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="jelly-bean"><span class="version-icon">4.1</span><strong>Jelly Bean</strong><small>2012</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="kitkat"><span class="version-icon">4.4</span><strong>KitKat</strong><small>2013</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="lollipop"><span class="version-icon">5.0</span><strong>Lollipop</strong><small>2014</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="marshmallow"><span class="version-icon">6.0</span><strong>Marshmallow</strong><small>2015</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="nougat"><span class="version-icon">7.0</span><strong>Nougat</strong><small>2016</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="oreo"><span class="version-icon">8.0</span><strong>Oreo</strong><small>2017</small></button>
+                <button class="version-node" type="button" aria-expanded="false" aria-controls="version-detail" data-version="pie"><span class="version-icon">9.0</span><strong>Pie</strong><small>2018</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-10"><span class="version-icon">10</span><strong>Android 10</strong><small>2019</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-11"><span class="version-icon">11</span><strong>Android 11</strong><small>2020</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-12"><span class="version-icon">12</span><strong>Android 12</strong><small>2021</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-13"><span class="version-icon">13</span><strong>Android 13</strong><small>2022</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-14"><span class="version-icon">14</span><strong>Android 14</strong><small>2023</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-15"><span class="version-icon">15</span><strong>Android 15</strong><small>2024</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-16"><span class="version-icon">16</span><strong>Android 16</strong><small>2025</small></button>
+                <button class="version-node numbered-version" type="button" aria-expanded="false" aria-controls="version-detail" data-version="android-17"><span class="version-icon">17</span><strong>Android 17</strong><small>2026</small></button>
+              </div>
+              <div class="version-detail" id="version-detail" role="region" aria-live="polite" aria-label="Selected Android version details">
+                <p class="version-detail-placeholder">Select a version above to see its key features.</p>
+              </div>
+            </section>
+
+            <h3>2.1.2 Android Market Share and Impact in Mobile Development</h3>
+            <p>Android is the world's leading mobile operating system, holding roughly two-thirds to three-quarters of the global market, and its open, multi-vendor model has made it the main platform for mobile app development worldwide.It runs on smartphones, tablets, smartwatches (Wear OS), TVs (Android TV / Google TV), cars (Android Auto / Automotive OS) and many IoT devices. Google reported over 3 billion active Android devices worldwide (2021 benchmark)</p>
+
+            <p><strong>Impact of Android on Mobile Development</strong></p>
+            <ul>
+              <li><strong>Democratization of app development</strong><br>Android made app development open and affordable. Students and small startups can build and publish apps with a normal PC and a low one-time fee. This is why Android is usually the first platform taught in colleges and used in many startups, especially in South Asia.</li>
+              <li><strong>Largest user reach</strong><br>Because of its large market share, an Android app can reach billions of users. Businesses targeting mass markets (banking, e-wallets like eSewa/Khalti, ride-sharing, e-commerce, government services) often release on Android first or Android only.</li>
+              <li><strong>Standard tools and languages</strong><br>• Android Studio (official IDE, based on IntelliJ IDEA) with emulator, profiler, layout inspector.<br>• Languages: Java (traditional) → Kotlin (now preferred, "Kotlin-first").<br>• Android Jetpack: libraries such as Room, ViewModel, LiveData, Navigation, WorkManager.<br>• Jetpack Compose: modern declarative UI, replacing XML layouts in new projects.<br>• Gradle build system.<br>Android's popularity has made Kotlin one of the fastest-growing programming languages.</li>
+              <li><strong>App economy and distribution</strong><br>• Google Play Store is the largest app store by number of apps and downloads.<br>• Android also allows side-loading (APK install) and third-party stores (Samsung Galaxy Store, Huawei AppGallery, Amazon Appstore).<br>• Monetization models: free with ads (AdMob), in-app purchases, subscriptions, paid apps.</li>
+              <li><strong>Expansion beyond phones</strong><br>Developers can use the same skills to build apps for Wear OS, Android TV/Google TV, Android Auto, tablets, foldables, Chromebooks and IoT devices.</li>
+              <li><strong>Career and job market</strong><br>The large market share creates high demand for Android developers, making Android skills important for IT graduates and freelancers.</li>
+              <li><strong>Open-source community</strong><br>A massive community provides libraries (Retrofit, Glide, Hilt), tutorials, Stack Overflow answers and GitHub projects, which reduces development time.</li>
+            </ul>
+
+            <h3>2.1.3. Features of Android</h3>
+            <p>Android gives users and developers a rich, flexible platform. Its main features are:</p>
+            <ol>
+              <li><strong>Open source and customizable</strong> – The source code (AOSP) is free. Manufacturers can modify it (e.g. Samsung One UI, Xiaomi HyperOS), and users can change launchers, themes, widgets and default apps.</li>
+              <li><strong>Connectivity</strong> – Supports 4G LTE, 5G, Wi-Fi (including Wi-Fi 6/7), Bluetooth, NFC and USB. Users can make calls, send SMS and transfer data over mobile networks. (Older 2G/CDMA networks are now largely shut down.)</li>
+              <li><strong>Wi-Fi Direct and nearby sharing</strong> – Devices can connect and share files directly with each other without a router (Quick Share).</li>
+              <li><strong>Location-based services</strong> – APIs for GPS, network location and Google Maps, used by apps such as ride-sharing and food delivery.</li>
+              <li><strong>Data storage</strong> – Lightweight relational database SQLite (usually through the Jetpack Room library), plus Shared Preferences/DataStore, internal and external file storage, and cloud storage.</li>
+              <li><strong>Media support</strong> – Plays and records many audio, video and image formats, such as MP3, AAC, Opus, MP4 (H.264), H.265/HEVC, VP9, AV1, JPEG, PNG, GIF, WebP, HEIF and AVIF.</li>
+              <li><strong>Hardware access</strong> – Apps can use the camera, microphone, GPS, fingerprint and face sensors, accelerometer, gyroscope, proximity and light sensors.</li>
+              <li><strong>Web browsing and WebView</strong> – Built-in Chromium-based browser engine (Android System WebView) supporting HTML5, CSS3 and JavaScript; apps can embed web pages.</li>
+              <li><strong>Multitasking</strong> – Several apps run at the same time. Users can switch apps, use split-screen and picture-in-picture modes.</li>
+              <li><strong>Reusable app components</strong> – Apps are built from Activities, Services, Broadcast Receivers and Content Providers. One app can use another app's components through Intents (e.g. opening the camera app to take a photo), and native apps can be replaced.</li>
+              <li><strong>2D/3D graphics</strong> – Supports OpenGL ES and Vulkan for games and graphics-heavy apps.</li>
+              <li><strong>Rich notifications and widgets</strong> – Interactive notifications, notification channels and home-screen widgets.</li>
+              <li><strong>Security and privacy</strong> – Each app runs in its own sandbox; runtime permissions (since Android 6.0); Google Play Protect scanning; regular monthly security patches; privacy dashboard.</li>
+              <li><strong>Modern UI</strong> – Material Design (Material You) with dynamic colour themes; Jetpack Compose for building UI.</li>
+              <li><strong>Multi-language and accessibility support</strong> – Supports many languages (including Nepali) and accessibility tools like TalkBack and Live Caption.</li>
+              <li><strong>Google services integration</strong> – Google Play, Gmail, Maps, Drive, Google Assistant / Gemini and automatic cloud backup.</li>
+            </ol>
+
+            <h3>2.1.4. Advantages (Pros) of Android</h3>
+            <ol>
+              <li><strong>Open source and free</strong> – No licence fee for manufacturers; anyone can study and improve the code.</li>
+              <li><strong>Wide choice of devices</strong> – Available from many brands (Samsung, Google Pixel, Xiaomi, OnePlus, Vivo, Oppo, Motorola, etc.) at every price range, from budget to flagship.</li>
+              <li><strong>Huge app ecosystem</strong> – Millions of free and paid apps and games on Google Play, plus other stores.</li>
+              <li><strong>High customization</strong> – Users can change launchers, icon packs, widgets, keyboards and default apps, which is not as easy on iOS.</li>
+              <li><strong>Google services integration</strong> – Gmail, Maps, YouTube, Drive and Assistant work seamlessly with one Google account.</li>
+              <li><strong>Easy to use</strong> – User-friendly interface with gestures, quick settings and helpful tools.</li>
+              <li><strong>Flexible file handling</strong> – Easy file transfer over USB-C, expandable storage (microSD) on many phones, USB OTG support and an open file system.</li>
+              <li><strong>Sideloading</strong> – Apps can be installed from outside the Play Store (APK files) when needed.</li>
+              <li><strong>Developer friendly</strong> – Free tools (Android Studio, SDK, emulator), well-known languages (Kotlin, Java) and a very large user base.</li>
+              <li><strong>Good multitasking</strong> – Split-screen, picture-in-picture and background services.</li>
+              <li><strong>Hardware innovation</strong> – New form factors such as foldable phones and stylus devices usually appear first on Android.</li>
+            </ol>
+
+            <h3>2.1.5. Disadvantages (Cons) of Android</h3>
+            <ol>
+              <li><strong>Fragmentation</strong> – Thousands of device models run different Android versions and screen sizes, so developers must test on many devices.</li>
+              <li><strong>Slow or uneven updates</strong> – Updates depend on the manufacturer; budget phones may get few or late OS and security updates.</li>
+              <li><strong>Malware risk</strong> – Open nature and sideloading APKs from unknown sources can expose users to viruses, spyware and fake apps.</li>
+              <li><strong>Bloatware</strong> – Many phones come with pre-installed apps that users cannot easily remove.</li>
+              <li><strong>Advertisements</strong> – Many free apps show unavoidable ads, which waste time and data.</li>
+              <li><strong>Battery drain</strong> – Background apps and heavy usage can drain the battery quickly, especially on low-end devices.</li>
+              <li><strong>Privacy concerns</strong> – Deep integration with Google services means a lot of user data is collected.</li>
+              <li><strong>Inconsistent performance</strong> – Low-cost phones with limited RAM may lag or hang.</li>
+              <li><strong>Internet dependence</strong> – Many features (sync, cloud backup, app updates, assistant) need Wi-Fi or mobile data.</li>
+              <li><strong>Inconsistent user experience</strong> – Each manufacturer's custom skin looks and works differently.</li>
+            </ol>
+          </div>
+        </section>
+        <div class="next-unit"><p>Next: explore Android application development and user interfaces.</p><a href="unit3.html">Next unit &rarr;</a></div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

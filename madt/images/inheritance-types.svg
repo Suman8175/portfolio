@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">Types of inheritance in Kotlin</title>
+  <desc id="description">Five diagrams show single, multilevel, hierarchical, multiple through interfaces, and hybrid inheritance.</desc>
+  <style>
+    .panel { fill: #fffdf8; stroke: #ded7c9; stroke-width: 2; }
+    .heading { fill: #202329; font: 700 22px Arial, sans-serif; }
+    .label { fill: #202329; font: 600 17px Arial, sans-serif; }
+    .small { fill: #656b72; font: 15px Arial, sans-serif; }
+    .class { fill: #f5d6c8; stroke: #e45d3c; stroke-width: 2; }
+    .interface { fill: #dcecea; stroke: #4d8984; stroke-width: 2; }
+    .line { fill: none; stroke: #202329; stroke-width: 2.5; marker-end: url(#arrow); }
+    .branch { fill: none; stroke: #202329; stroke-width: 2.5; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#202329"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f7f3ea"/>
+
+  <g transform="translate(20 20)">
+    <rect class="panel" width="370" height="335" rx="8"/>
+    <text class="heading" x="24" y="38">Single inheritance</text>
+    <text class="small" x="24" y="64">One child, one parent</text>
+    <rect class="class" x="115" y="92" width="140" height="48" rx="6"/>
+    <text class="label" x="185" y="122" text-anchor="middle">Animal</text>
+    <path class="line" d="M185 140V205"/>
+    <rect class="class" x="115" y="208" width="140" height="48" rx="6"/>
+    <text class="label" x="185" y="238" text-anchor="middle">Dog</text>
+    <text class="small" x="185" y="295" text-anchor="middle">Dog : Animal()</text>
+  </g>
+
+  <g transform="translate(415 20)">
+    <rect class="panel" width="370" height="335" rx="8"/>
+    <text class="heading" x="24" y="38">Multilevel inheritance</text>
+    <text class="small" x="24" y="64">A chain of parent and child classes</text>
+    <rect class="class" x="115" y="82" width="140" height="44" rx="6"/>
+    <text class="label" x="185" y="110" text-anchor="middle">A</text>
+    <path class="line" d="M185 126V155"/>
+    <rect class="class" x="115" y="158" width="140" height="44" rx="6"/>
+    <text class="label" x="185" y="186" text-anchor="middle">B : A()</text>
+    <path class="line" d="M185 202V231"/>
+    <rect class="class" x="115" y="234" width="140" height="44" rx="6"/>
+    <text class="label" x="185" y="262" text-anchor="middle">C : B()</text>
+  </g>
+
+  <g transform="translate(810 20)">
+    <rect class="panel" width="370" height="335" rx="8"/>
+    <text class="heading" x="24" y="38">Hierarchical inheritance</text>
+    <text class="small" x="24" y="64">Many children, one parent</text>
+    <rect class="class" x="115" y="88" width="140" height="46" rx="6"/>
+    <text class="label" x="185" y="117" text-anchor="middle">Animal</text>
+    <path class="branch" d="M185 134V170M185 170H90V210M185 170H280V210"/>
+    <path class="line" d="M90 190V210"/>
+    <path class="line" d="M280 190V210"/>
+    <rect class="class" x="25" y="213" width="130" height="46" rx="6"/>
+    <text class="label" x="90" y="242" text-anchor="middle">Dog</text>
+    <rect class="class" x="215" y="213" width="130" height="46" rx="6"/>
+    <text class="label" x="280" y="242" text-anchor="middle">Cat</text>
+  </g>
+
+  <g transform="translate(20 385)">
+    <rect class="panel" width="570" height="335" rx="8"/>
+    <text class="heading" x="24" y="38">Multiple inheritance</text>
+    <text class="small" x="24" y="64">Kotlin uses multiple interfaces, not classes</text>
+    <rect class="interface" x="48" y="105" width="160" height="48" rx="6"/>
+    <text class="label" x="128" y="135" text-anchor="middle">Father</text>
+    <rect class="interface" x="362" y="105" width="160" height="48" rx="6"/>
+    <text class="label" x="442" y="135" text-anchor="middle">Mother</text>
+    <path class="line" d="M128 153L245 235"/>
+    <path class="line" d="M442 153L325 235"/>
+    <rect class="class" x="205" y="238" width="160" height="48" rx="6"/>
+    <text class="label" x="285" y="268" text-anchor="middle">Child</text>
+    <text class="small" x="285" y="315" text-anchor="middle">class Child : Father, Mother</text>
+  </g>
+
+  <g transform="translate(610 385)">
+    <rect class="panel" width="570" height="335" rx="8"/>
+    <text class="heading" x="24" y="38">Hybrid inheritance</text>
+    <text class="small" x="24" y="64">A combination of inheritance forms</text>
+    <rect class="class" x="215" y="88" width="140" height="44" rx="6"/>
+    <text class="label" x="285" y="116" text-anchor="middle">Animal</text>
+    <path class="branch" d="M285 132V162M285 162H145V202M285 162H425V202"/>
+    <path class="line" d="M145 182V202"/>
+    <path class="line" d="M425 182V202"/>
+    <rect class="class" x="75" y="205" width="140" height="44" rx="6"/>
+    <text class="label" x="145" y="233" text-anchor="middle">Dog</text>
+    <rect class="class" x="355" y="205" width="140" height="44" rx="6"/>
+    <text class="label" x="425" y="233" text-anchor="middle">Cat</text>
+    <rect class="interface" x="215" y="274" width="140" height="38" rx="6"/>
+    <text class="label" x="285" y="299" text-anchor="middle">Pet</text>
+    <path class="line" d="M215 249L255 274"/>
+    <path class="line" d="M355 249L315 274"/>
+  </g>
+</svg>

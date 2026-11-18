@@ -68,8 +68,8 @@
             <a class="topic-card" href="#control-flow"><h3>1.3 Control Flow in Kotlin</h3><p>Control flow statements in Kotlin.</p></a>
             <a class="topic-card" href="#exception-handling"><h3>1.4 Exception Handling in Kotlin</h3><p>Try, Catch, Finally and Throw statements</p></a>
             <a class="topic-card" href="#functions"><h3>1.5 Functions in Kotlin</h3><p>Declare functions, return values, and use default parameters.</p></a>
-            <a class="topic-card" href="#lambda-expressions"><h3>1.5.1 Lambda Expressions</h3><p>Write anonymous functions and pass behavior as a value.</p></a>
-            <a class="topic-card" href="#higher-order-functions"><h3>1.5.2 Higher-Order Functions</h3><p>Pass functions as arguments and return them from other functions.</p></a>
+            <a class="topic-card" href="#object-oriented-programming"><h3>1.6 OOP in Kotlin</h3><p>Use Kotlin classes, objects, and inheritance.</p></a>
+            <a class="topic-card" href="#assignment"><h3>Assignment</h3><p>Review Unit 1 with these Kotlin questions.</p></a>
           </div>
 
           <h2 id="introduction">1.1 Introduction to Kotlin</h2>
@@ -590,6 +590,201 @@ println(squares)      // [1, 4, 9, 16, 25]
 println(evenNumbers)  // [2, 4]</code></pre></div>
             <p>Android also uses this pattern for event callbacks, such as passing a lambda to <code>setOnClickListener</code> to define what should happen when a button is tapped.</p>
             <div class="callout"><strong>Key idea</strong><span>A lambda is the function value; a higher-order function is the function that receives or returns that value. Together, they make behavior reusable, configurable, and easy to compose.</span></div>
+
+            <h2 id="object-oriented-programming">1.6 Object-Oriented Programming</h2>
+            <p>Object-Oriented Programming (OOP) models real-world entities in code. The two foundational building blocks are <strong>classes</strong> and <strong>objects</strong>.</p>
+
+            <h3 id="classes-and-objects">1.6.1 Classes and Objects</h3>
+            <h4>Class</h4>
+            <p>A <strong>class</strong> is a logical blueprint, template, or prototype used to create objects. It defines the properties (data) and member functions (behavior) that its objects share. A class itself does not represent a specific entity.</p>
+
+            <h4>Object</h4>
+            <p>An <strong>object</strong> is a runtime instance of a class. It represents a specific real-world entity, holds actual data values in memory, and can execute the functions defined by its class.</p>
+            <div class="callout"><strong>Real-world analogy</strong><span>A <code>Student</code> class is like an empty admission form defining fields such as name, age, and roll number. Each filled-out form for an individual student, such as Ram or Sita, is an object.</span></div>
+
+            <h4>Class syntax in Kotlin</h4>
+            <p>A Kotlin class is a user-defined data type declared with the <code>class</code> keyword. It encapsulates properties and operations into one reusable unit.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>class-syntax.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>class ClassName {
+    // Properties (variables)
+
+    // Member functions (methods)
+}</code></pre></div>
+            <ul>
+              <li><strong>Blueprint for objects:</strong> Defines the common structure and behavior for its instances.</li>
+              <li><strong>Encapsulation:</strong> Bundles properties and member functions together.</li>
+              <li><strong>Constructors:</strong> Initializes object properties when an object is created.</li>
+              <li><strong>Inheritance and interfaces:</strong> Supports inheriting from open classes and implementing interfaces.</li>
+              <li><strong>Code reusability:</strong> Organizes code into modular, reusable components.</li>
+            </ul>
+
+            <h4>Creating and using an object</h4>
+            <p>In Kotlin, create an object by calling the class constructor directly. Unlike Java, Kotlin does not use the <code>new</code> keyword. Use the dot (<code>.</code>) operator to access properties and call member functions.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>student.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>class Student {
+    var name: String = "Ram"
+    var age: Int = 20
+
+    fun displayDetails() {
+        println("Name: $name")
+        println("Age: $age")
+    }
+}
+
+fun main() {
+    val student1 = Student()
+    student1.displayDetails()
+}</code></pre></div>
+            <p><code>val student1 = Student()</code> creates an object of the <code>Student</code> class, and <code>student1.displayDetails()</code> calls its member function.</p>
+            <p><strong>Output:</strong></p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>output.txt</span><button class="copy-code" type="button">Copy</button></div><pre><code>Name: Ram
+Age: 20</code></pre></div>
+
+            <h4>Class and object: difference</h4>
+            <div class="table-wrap"><table><thead><tr><th>Basis</th><th>Class</th><th>Object</th></tr></thead><tbody>
+              <tr><td>Definition</td><td>A blueprint or template used to create objects.</td><td>A real-world instance of a class.</td></tr>
+              <tr><td>Nature</td><td>Logical or abstract structure.</td><td>Physical or concrete realization.</td></tr>
+              <tr><td>Memory</td><td>Defines the structure; it is not an individual instance.</td><td>Stores actual property values in memory.</td></tr>
+              <tr><td>Declaration</td><td>Created using the <code>class</code> keyword.</td><td>Created by calling the class constructor, such as <code>ClassName()</code>.</td></tr>
+              <tr><td>Data</td><td>Defines what properties an object can have.</td><td>Holds actual values for those properties.</td></tr>
+            </tbody></table></div>
+
+            <h3 id="constructors-inheritance-polymorphism">1.6.2 Constructors, Inheritance and Polymorphism</h3>
+
+            <h4>Constructors in Kotlin</h4>
+            <p>A <strong>constructor</strong> is a special part of a class that is invoked automatically when an object is created. Its primary purpose is to initialize the class properties. Kotlin has two types of constructors: <strong>primary</strong> and <strong>secondary</strong>.</p>
+
+            <h4>Primary constructor</h4>
+            <p>A primary constructor is declared directly in the class header after the class name. Parameters marked with <code>val</code> or <code>var</code> automatically become class properties. A primary constructor cannot contain executable statements directly; use an <code>init</code> block for initialization logic.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>primary-constructor.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>class Student(val name: String, var age: Int) {
+    init {
+        println("Student created: $name")
+    }
+}
+
+val student = Student("Ram", 20)</code></pre></div>
+
+            <h4>Secondary constructor</h4>
+            <p>A secondary constructor is declared inside the class body with the <code>constructor</code> keyword. It is useful when a class needs multiple ways to initialize objects. If a class has a primary constructor, every secondary constructor must delegate to it directly or indirectly using <code>this(...)</code>.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>secondary-constructor.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>class Person(val name: String) {
+    var age: Int = 0
+
+    constructor(name: String, age: Int) : this(name) {
+        this.age = age
+    }
+}
+
+val person = Person("Sita", 21)</code></pre></div>
+
+            <h4>Inheritance in Kotlin</h4>
+            <p><strong>Inheritance</strong> is an OOP mechanism in which one class acquires the properties and behaviors of another class. It promotes code reuse. Kotlin uses the <code>:</code> symbol for inheritance.</p>
+            <ul>
+              <li><strong>Parent class (superclass):</strong> The class whose members are inherited.</li>
+              <li><strong>Child class (subclass):</strong> The class that inherits members.</li>
+              <li><strong><code>open</code> keyword:</strong> Classes and methods are final by default, so <code>open</code> is required to allow inheritance or overriding.</li>
+            </ul>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>inheritance.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>open class Animal {
+    fun eat() {
+        println("Animal is eating")
+    }
+}
+
+class Dog : Animal() {
+    fun bark() {
+        println("Dog is barking")
+    }
+}
+
+fun main() {
+    val dog = Dog()
+    dog.eat()
+    dog.bark()
+}</code></pre></div>
+            <p>Here, <code>Animal</code> is the parent class and <code>Dog</code> is the child class. The <code>Dog</code> object can use the inherited <code>eat()</code> function as well as its own <code>bark()</code> function.</p>
+            <p><strong>Output:</strong></p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>output.txt</span><button class="copy-code" type="button">Copy</button></div><pre><code>Animal is eating
+Dog is barking</code></pre></div>
+
+            <h4>Types of inheritance</h4>
+            <ul>
+              <li><strong>Single inheritance:</strong> One child class inherits from one parent class.</li>
+              <li><strong>Multilevel inheritance:</strong> A class inherits from a child class, forming a chain such as <code>A &rarr; B &rarr; C</code>.</li>
+              <li><strong>Hierarchical inheritance:</strong> Multiple child classes inherit from the same parent class.</li>
+              <li><strong>Multiple inheritance:</strong> Kotlin does not allow a class to inherit from multiple classes, but a class can implement multiple interfaces.</li>
+              <li><strong>Hybrid inheritance:</strong> A combination of inheritance forms, created in Kotlin using classes and interfaces because multiple class inheritance is not supported.</li>
+            </ul>
+            <figure class="diagram-card">
+              <img src="images/inheritance-types.svg" alt="Diagram showing single, multilevel, hierarchical, multiple interface, and hybrid inheritance in Kotlin" />
+              <figcaption>Visual guide to inheritance structures in Kotlin.</figcaption>
+            </figure>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>multiple-interfaces.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>interface Father {
+    fun fatherFeature() {
+        println("Father's feature")
+    }
+}
+
+interface Mother {
+    fun motherFeature() {
+        println("Mother's feature")
+    }
+}
+
+class Child : Father, Mother</code></pre></div>
+
+            <h4>Polymorphism in Kotlin</h4>
+            <p><strong>Polymorphism</strong> means “many forms.” It allows one function name or interface to behave differently depending on the parameters passed or the object invoking it. Kotlin supports compile-time polymorphism through overloading and run-time polymorphism through overriding.</p>
+
+            <h4>Compile-time polymorphism: method overloading</h4>
+            <p><strong>Method overloading</strong> occurs when functions in the same class have the same name but different parameter lists. The compiler decides which function to call based on the number, type, or order of the arguments.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>overloading.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>class Calculator {
+    fun add(a: Int, b: Int) = a + b
+    fun add(a: Int, b: Int, c: Int) = a + b + c
+    fun add(a: Double, b: Double) = a + b
+}
+
+fun main() {
+    val calc = Calculator()
+    println(calc.add(5, 10))        // 15
+    println(calc.add(5, 10, 15))    // 30
+    println(calc.add(2.5, 3.5))     // 6.0
+}</code></pre></div>
+
+            <h4>Run-time polymorphism: method overriding</h4>
+            <p><strong>Method overriding</strong> occurs when a subclass provides a specific implementation for a function already defined in its superclass. The parent function must be marked <code>open</code>, and the child function must use <code>override</code>. The implementation is selected at run time based on the actual object type.</p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>overriding.kt</span><button class="copy-code" type="button">Copy</button></div><pre><code>open class Animal {
+    open fun makeSound() {
+        println("Animal makes a generic sound")
+    }
+}
+
+class Dog : Animal() {
+    override fun makeSound() {
+        println("Dog barks: Woof!")
+    }
+}
+
+class Cat : Animal() {
+    override fun makeSound() {
+        println("Cat meows: Meow!")
+    }
+}
+
+fun main() {
+    val myPet1: Animal = Dog()
+    val myPet2: Animal = Cat()
+    myPet1.makeSound()
+    myPet2.makeSound()
+}</code></pre></div>
+            <p><strong>Output:</strong></p>
+            <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>output.txt</span><button class="copy-code" type="button">Copy</button></div><pre><code>Dog barks: Woof!
+Cat meows: Meow!</code></pre></div>
+
+            <h4>Overloading vs. overriding</h4>
+            <div class="table-wrap"><table><thead><tr><th>Basis</th><th>Method overloading</th><th>Method overriding</th></tr></thead><tbody>
+              <tr><td>Polymorphism type</td><td>Compile-time (static).</td><td>Run-time (dynamic).</td></tr>
+              <tr><td>Scope</td><td>Occurs within the same class.</td><td>Occurs between a superclass and subclass.</td></tr>
+              <tr><td>Parameters</td><td>Must differ in count, type, or order.</td><td>Must have the same name and signature.</td></tr>
+              <tr><td>Keywords</td><td>No special keywords are required.</td><td>Requires <code>open</code> in the parent and <code>override</code> in the child.</td></tr>
+              <tr><td>Purpose</td><td>Supports similar operations with different inputs.</td><td>Provides a specific implementation of inherited behavior.</td></tr>
+            </tbody></table></div>
         </article>
 
         <h2 id="comparison">Youtube Video Links for Reference</h2>
@@ -607,6 +802,18 @@ println(evenNumbers)  // [2, 4]</code></pre></div>
             <source src="video/Unit%201.1.mp4" type="video/mp4" />
             Your browser does not support embedded video playback.
           </video>
+        </section>
+
+        <section class="assignment-card" id="assignment" aria-labelledby="assignment-title">
+          <p class="assignment-kicker">Unit 1 / Assignment</p>
+          <h2 id="assignment-title">Assignment questions</h2>
+          <ol>
+            <li>Why is Kotlin preferred over Java for Android application development? Explain any five major features of the Kotlin programming language.</li>
+            <li>Explain conditional statements in Kotlin. Differentiate between <code>if</code> and <code>when</code> expressions with suitable examples.</li>
+            <li>What is exception handling? Explain the use of <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>throw</code> in Kotlin with suitable examples.</li>
+            <li>Explain function declaration, parameters, lambda expressions, and higher-order functions with suitable examples.</li>
+            <li>Explain in brief about inheritance, polymorphism, interfaces, and abstract classes in Kotlin.</li>
+          </ol>
         </section>
 
         <div class="next-unit"><p>Unit 1 is the Kotlin foundation for the Android units ahead.</p><a href="unit2.html">Next unit &rarr;</a></div>

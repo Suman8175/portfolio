@@ -139,7 +139,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   search?.addEventListener("input", filterTopics);
 
-  // 8. Copy code logic
+  // 8. Android version timeline
+  const versionDetails = {
+    cupcake: ["Cupcake 1.5 (2009)", "The first version with a dessert name. It added the on-screen keyboard, home-screen widgets and video recording."],
+    donut: ["Donut 1.6 (2009)", "Support for different screen sizes and resolutions, a universal search box, and text-to-speech."],
+    eclair: ["Eclair 2.0–2.1 (2009)", "Free turn-by-turn navigation in Google Maps, live wallpapers, multiple accounts, and Bluetooth 2.1."],
+    froyo: ["Froyo 2.2 (2010)", "A big speed boost from the JIT compiler, Wi-Fi hotspot tethering, and the option to install apps on the SD card."],
+    gingerbread: ["Gingerbread 2.3 (2010)", "A cleaner interface, NFC support, a front-camera API for video calls, and a better copy/paste."],
+    honeycomb: ["Honeycomb 3.0–3.2 (2011)", "A tablet-only release. It introduced the “Holo” design, on-screen navigation buttons and the action bar."],
+    "ice-cream-sandwich": ["Ice Cream Sandwich 4.0 (2011)", "Brought phones and tablets together on one version. It added face unlock, data-usage tracking and the Roboto font."],
+    "jelly-bean": ["Jelly Bean 4.1–4.3 (2012)", "“Project Butter” made the system much smoother. It also added Google Now, expandable notifications and multi-user support on tablets."],
+    kitkat: ["KitKat 4.4 (2013)", "Tuned to run on cheap phones with only 512 MB of RAM. It added “OK Google” voice commands and full-screen immersive mode."],
+    lollipop: ["Lollipop 5.0–5.1 (2014)", "One of the biggest redesigns, with Material Design. ART replaced Dalvik as the app runtime, and notifications appeared on the lock screen."],
+    marshmallow: ["Marshmallow 6.0 (2015)", "Apps had to ask for permissions while running instead of at install. It added Doze mode to save battery, built-in fingerprint support and USB-C."],
+    nougat: ["Nougat 7.0–7.1 (2016)", "Split-screen multitasking, quick replies from notifications, seamless background updates, and the first Google Assistant (on Pixel)."],
+    oreo: ["Oreo 8.0–8.1 (2017)", "Picture-in-picture, notification dots, autofill, background limits to save battery, and Project Treble, which made updates easier for phone makers."],
+    pie: ["Pie 9.0 (2018)", "Gesture navigation, Digital Wellbeing, Adaptive Battery and Adaptive Brightness that learn your habits, and support for notched screens. This was the last version with a public dessert name."],
+    "android-10": ["Android 10 (2019)", "Dropped the dessert names. It added a system-wide dark theme, full gesture navigation, more privacy controls (such as allowing location only while an app is in use) and support for foldable phones."],
+    "android-11": ["Android 11 (2020)", "A separate section for conversation notifications, chat bubbles, one-time permissions, a built-in screen recorder and a controls area for smart-home devices."],
+    "android-12": ["Android 12 (2021)", "The “Material You” redesign, where the system's colors match your wallpaper. It added a privacy dashboard, indicators for when the camera or mic is in use, and approximate location sharing."],
+    "android-13": ["Android 13 (2022)", "Per-app language settings, themed app icons, a permission prompt before apps can send notifications, and a better photo picker."],
+    "android-14": ["Android 14 (2023)", "More lock-screen customization, bigger font scaling for accessibility, and the option to use your phone as a webcam."],
+    "android-15": ["Android 15 (2024)", "Private Space (a hidden, locked area for sensitive apps), theft-protection features, partial screen sharing and satellite messaging support."],
+    "android-16": ["Android 16 (2025)", "Launched on June 10, 2025, with Live Updates, notification improvements, hearing-aid controls, Advanced Protection, and desktop-style windowing on supported large screens. Later in the year it got the “Material 3 Expressive” redesign, which uses more animation, color and blur. A December 2025 update added AI notification summaries, Notification Organizer, custom icon shapes, expanded dark-theme behavior, and parental controls in Settings. It was also released earlier in the year than usual, and from this version on Google ships two developer releases a year: a major one and a minor one."],
+    "android-17": ["Android 17 (2026)", "The current version. It began rolling out to supported Pixel phones on June 16, 2026. Main features include Bubbles, screen recording with a selfie-video overlay, foldable gaming mode, Gemini Intelligence, and privacy and security improvements such as a privacy-first contact picker, Encrypted Client Hello, and stronger lock-screen protection against guessing."]
+  };
+  const versionButtons = [...document.querySelectorAll(".version-node")];
+  const versionDetail = document.querySelector("#version-detail");
+  versionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const detail = versionDetails[button.dataset.version];
+      if (!detail || !versionDetail) return;
+      const isSelected = button.getAttribute("aria-expanded") === "true";
+      versionButtons.forEach((item) => item.setAttribute("aria-expanded", "false"));
+      if (isSelected) {
+        versionDetail.classList.remove("is-open");
+        versionDetail.innerHTML = '<p class="version-detail-placeholder">Select a version above to see its key features.</p>';
+        return;
+      }
+      button.setAttribute("aria-expanded", "true");
+      versionDetail.innerHTML = `<h4>${detail[0]}</h4><p>${detail[1]}</p>`;
+      versionDetail.classList.add("is-open");
+    });
+  });
+
+  // 9. Copy code logic
   document.querySelectorAll(".copy-code").forEach((button) => {
     button.addEventListener("click", async () => {
       const code = button.closest(".code-card")?.querySelector("pre")?.innerText || "";
