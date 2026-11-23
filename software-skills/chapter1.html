@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Software Skills Chapter 1: software, types of software, network setup, and IP address setup.">
+  <title>Chapter 1: Software Basics | Software Skills</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="mobile-header">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <a class="mobile-brand" href="index.html"><span class="brand-mark">S</span><strong>Software Skills</strong></a>
+    </header>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span><span class="brand-text"><strong>Software Skills</strong><small>Practicum notes</small></span></a>
+        <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Fold / Expand sidebar" title="Fold / Expand sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9-3 3 3 3"/></svg></button>
+      </div>
+      <p class="side-kicker">Course map / 4 chapters</p>
+      <nav class="unit-nav" aria-label="Software Skills chapters">
+        <a class="unit-link" href="chapter1.html" data-title="01: Software basics"><span class="unit-number">01</span><span class="unit-name">Software basics</span></a>
+        <a class="unit-link" href="chapter2.html" data-title="02: Computer security"><span class="unit-number">02</span><span class="unit-name">Computer security</span></a>
+        <a class="unit-link" href="chapter3.html" data-title="03: Internet &amp; browsing"><span class="unit-number">03</span><span class="unit-name">Internet &amp; browsing</span></a>
+        <a class="unit-link" href="chapter4.html" data-title="04: Office &amp; communication"><span class="unit-number">04</span><span class="unit-name">Office &amp; communication</span></a>
+      </nav>
+      <div class="sidebar-footer">Software Skill Practicum<span>Unit 1 / 1.1–1.3.1</span></div>
+    </aside>
+
+    <main class="main" id="notes-content">
+      <div class="topline"><span><span class="crumb">Software Skills</span> / Chapter 01</span><span class="status">Unit 1 notes</span></div>
+      <div class="content">
+        <header class="hero">
+          <div><p class="eyebrow">Chapter 01 / Introduction</p><h1>Software basics</h1><p class="hero-copy">Understand what software is, how it is classified, how programs are installed, and how IP addresses identify devices on a network.</p></div>
+          <div class="unit-stamp"><strong>1.1–1.3.1</strong><span>Software and networking foundations.</span><small>SOFTWARE SKILLS</small></div>
+        </header>
+
+        <div class="reading-tools">
+          <p class="section-label">On this page</p>
+          <label class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="topic-search" type="search" placeholder="Filter sections" aria-label="Filter sections"></label>
+        </div>
+
+        <article class="notes-body">
+          <div class="topic-index">
+            <a class="topic-card" href="#what-is-software"><h3>1.1 What is software?</h3><p>Definition, hardware relationship, features, and examples.</p></a>
+            <a class="topic-card" href="#types-of-software"><h3>1.2 Types of software</h3><p>System, application, utility, and general software categories.</p></a>
+            <a class="topic-card" href="#network-setup"><h3>1.3 Network setup</h3><p>Basic LAN setup and Microsoft Office installation.</p></a>
+            <a class="topic-card" href="#ip-address"><h3>1.3.1 IP address setup</h3><p>IP addresses, DHCP, static addresses, IPv4 and IPv6.</p></a>
+          </div>
+          <p class="empty-state" id="empty-state">No section matches that search.</p>
+
+          <h2 id="what-is-software">1.1 What is Software?</h2>
+          <p><strong>Software</strong> is a collection of programs and data that gives instructions to computer hardware. Hardware is the physical part of a computer, such as the keyboard, monitor, processor, and memory. Hardware cannot decide what to do by itself; it needs software to control and coordinate its operations.</p>
+          <p>For example, in a word-processing program, software takes text entered by the keyboard, stores it in memory, processes it, and displays it on the monitor. The keyboard and monitor are hardware, while Microsoft Word or LibreOffice Writer is software.</p>
+
+          <h3>Difference between hardware and software</h3>
+          <div class="table-wrap"><table><thead><tr><th>Hardware</th><th>Software</th></tr></thead><tbody>
+            <tr><td>Physical and visible component of a computer.</td><td>A set of instructions and data that runs on hardware.</td></tr>
+            <tr><td>Can be touched and replaced.</td><td>Usually cannot be touched physically.</td></tr>
+            <tr><td>Examples: monitor, mouse, RAM, hard disk.</td><td>Examples: operating system, browser, calculator.</td></tr>
+            <tr><td>Designed and manufactured.</td><td>Developed, written, and updated by programmers.</td></tr>
+            <tr><td>Does not depend on software instructions.</td><td>Cannot operate without compatible hardware.</td></tr>
+          </tbody></table></div>
+
+          <h3>Important features of software</h3>
+          <ul>
+            <li><strong>It provides instructions:</strong> Software tells the hardware what task to perform and in what order.</li>
+            <li><strong>It is non-physical:</strong> It exists as files, code, and data, although it is stored on a physical disk or memory.</li>
+            <li><strong>It can be developed and updated:</strong> A software program can receive improvements, bug fixes, and security updates.</li>
+            <li><strong>It can be copied or installed:</strong> The same software package can be installed on different compatible computers.</li>
+            <li><strong>It must be compatible:</strong> Software must support the computer's operating system and hardware architecture.</li>
+            <li><strong>It depends on hardware:</strong> Software runs correctly only when the required processor, memory, storage, and devices are available.</li>
+          </ul>
+
+          <div class="callout"><strong>Simple definition for a question</strong>Software is a set of instructions and programs that control computer hardware to perform useful work.</div>
+
+          <h2 id="types-of-software">1.2 Types of Software</h2>
+          <p>Software is commonly divided into <strong>system software</strong>, <strong>application software</strong>, and <strong>utility software</strong>. These categories describe the main purpose of the software.</p>
+
+          <h3>1. System software</h3>
+          <p>System software manages and controls computer hardware. It provides a platform on which application software can run. The most important example is the <strong>operating system (OS)</strong>.</p>
+          <p>Examples include Windows, Linux, macOS, Android, and iOS. An operating system manages the processor, memory, files, input and output devices, connected hardware, and running applications.</p>
+          <p>System software does not normally perform a specific end-user task. It provides the environment needed for tasks such as document writing, web browsing, or video editing.</p>
+
+          <h3>2. Application software</h3>
+          <p>Application software is designed for a particular user task. It uses the services of the operating system but provides a direct benefit to the user.</p>
+          <div class="table-wrap"><table><thead><tr><th>Application type</th><th>Examples</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td>Word processing</td><td>Microsoft Word, LibreOffice Writer</td><td>Create and edit documents.</td></tr>
+            <tr><td>Spreadsheet</td><td>Microsoft Excel, LibreOffice Calc</td><td>Perform calculations and analyze data.</td></tr>
+            <tr><td>Presentation</td><td>Microsoft PowerPoint, LibreOffice Impress</td><td>Create slides for presentations.</td></tr>
+            <tr><td>Database</td><td>MySQL, Microsoft Access</td><td>Store and manage structured data.</td></tr>
+            <tr><td>Web browser</td><td>Google Chrome, Mozilla Firefox</td><td>Open and interact with websites.</td></tr>
+            <tr><td>Graphic or video editor</td><td>Photoshop, Canva, Adobe Premiere</td><td>Edit images and videos.</td></tr>
+            <tr><td>Communication</td><td>Email clients, messaging applications</td><td>Exchange messages and information.</td></tr>
+          </tbody></table></div>
+
+          <h3>3. Utility software</h3>
+          <p>Utility software helps maintain, secure, and manage a computer system. It supports the operating system and performs specialized tasks.</p>
+          <ul>
+            <li><strong>Antivirus software:</strong> detects and helps remove malware.</li>
+            <li><strong>Backup software:</strong> creates copies of important files.</li>
+            <li><strong>Disk cleanup tools:</strong> remove unnecessary temporary files.</li>
+            <li><strong>Compression tools:</strong> reduce file size or create archives.</li>
+            <li><strong>File-management tools:</strong> copy, move, rename, organize, and recover files.</li>
+          </ul>
+
+          <h3>Other useful classifications</h3>
+          <p>Software can also be classified by its distribution model:</p>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+            <tr><td>Freeware</td><td>Available to use free of cost, but the source code is not necessarily open.</td><td>Many freeware applications.</td></tr>
+            <tr><td>Open-source software</td><td>The source code is available and may be studied, changed, or redistributed under its licence.</td><td>LibreOffice, Linux, Firefox.</td></tr>
+            <tr><td>Commercial software</td><td>Sold or licensed by a company; use is governed by the licence.</td><td>Microsoft Office, Adobe Photoshop.</td></tr>
+            <tr><td>Shareware</td><td>Provided for trial or limited use before purchase.</td><td>Some paid trial programs.</td></tr>
+          </tbody></table></div>
+          <h3>Installing Microsoft Office</h3>
+          <ol>
+            <li>Check that the computer meets the supported operating system and system requirements.</li>
+            <li>Sign in to the correct Microsoft account that owns or has a valid licence for Microsoft 365.</li>
+            <li>Open the Microsoft account services page and select the option to install Microsoft 365 or Office.</li>
+            <li>Download the official installer for the correct Windows version and architecture.</li>
+            <li>Open the downloaded installer and allow it to run if Windows asks for permission.</li>
+            <li>Wait for setup to download and install the Office applications.</li>
+            <li>Open an application such as Word and activate it using the licensed account.</li>
+            <li>Check the application under Account or About to confirm that activation is successful.</li>
+          </ol>
+          <p>The exact button names may differ according to the Microsoft 365 or Office version, but the basic process remains the same: obtain the official installer, run it, sign in, and activate the licence.</p>
+
+          <h2 id="network-setup">1.3 Network Setup</h2>
+          <p>A <strong>computer network</strong> is a group of computers and devices connected to communicate and share resources. Devices may share files, printers, an internet connection, or network services.</p>
+
+          <h3>Basic types of networks</h3>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Full form</th><th>Normal coverage</th></tr></thead><tbody>
+            <tr><td>LAN</td><td>Local Area Network</td><td>A room, office, home, or building.</td></tr>
+            <tr><td>MAN</td><td>Metropolitan Area Network</td><td>A city or a large campus.</td></tr>
+            <tr><td>WAN</td><td>Wide Area Network</td><td>A country or several locations connected over large distances.</td></tr>
+            <tr><td>PAN</td><td>Personal Area Network</td><td>Devices belonging to one person, such as a phone and Bluetooth headset.</td></tr>
+          </tbody></table></div>
+
+          <h2 id="ip-address">1.3.1 IP Address Setup</h2>
+          <p>An <strong>IP address</strong> is a numerical address assigned to a device for communication on an IP network. It identifies the device on the network and helps route data to and from it.</p>
+
+          <h3>IPv4 and IPv6</h3>
+          <div class="table-wrap"><table><thead><tr><th>Address type</th><th>Format</th><th>Example</th><th>Main feature</th></tr></thead><tbody>
+            <tr><td>IPv4</td><td>Four decimal numbers separated by dots.</td><td>192.168.1.10</td><td>32-bit address; still widely used.</td></tr>
+            <tr><td>IPv6</td><td>Eight hexadecimal groups separated by colons.</td><td>2001:db8::1</td><td>128-bit address; a much larger address space.</td></tr>
+          </tbody></table></div>
+          <p>In the IPv4 example <code>192.168.1.10</code>, the address and subnet mask together determine which devices are on the local network. A common subnet mask is <code>255.255.255.0</code>.</p>
+
+          <h3>IPv4 address classes</h3>
+          <p>IPv4 addresses were originally grouped into classes according to their first octet. The classes are mainly studied for basic networking and historical understanding.</p>
+          <div class="table-wrap"><table><thead><tr><th>Class</th><th>IP address range</th><th>Default network use</th></tr></thead><tbody>
+            <tr><td>Class A</td><td>0.0.0.0–127.255.255.255</td><td>Large networks.</td></tr>
+            <tr><td>Class B</td><td>128.0.0.0–191.255.255.255</td><td>Medium-sized networks.</td></tr>
+            <tr><td>Class C</td><td>192.0.0.0–223.255.255.255</td><td>Small networks.</td></tr>
+            <tr><td>Class D</td><td>224.0.0.0–239.255.255.255</td><td>Multicast use.</td></tr>
+            <tr><td>Class E</td><td>240.0.0.0–255.255.255.255</td><td>Reserved for experimental and research use.</td></tr>
+          </tbody></table></div>
+
+          <h3>Subnet mask</h3>
+          <p>A <strong>subnet mask</strong> separates the network portion of an IPv4 address from the host portion. For example, with address <code>192.168.1.10</code> and mask <code>255.255.255.0</code>, the local network address is <code>192.168.1.0</code>, and addresses from <code>192.168.1.1</code> to <code>192.168.1.254</code> can be used as hosts.</p>
+
+          <h3>Default gateway</h3>
+          <p>The <strong>default gateway</strong> is the device, usually a router, through which a local network sends traffic that is outside the local network. A typical gateway may be <code>192.168.1.1</code>.</p>
+
+          <h3>Dynamic IP address</h3>
+          <p>A dynamic IP address is assigned automatically. The network router or server uses <strong>DHCP</strong> (Dynamic Host Configuration Protocol) to provide an available address for a certain lease period.</p>
+          <p>DHCP generally supplies at least the IPv4 address, subnet mask, default gateway, and DNS server information. Dynamic addressing is usually best for ordinary computers, laptops, phones, and printers.</p>
+
+          <h3>Static IP address</h3>
+          <p>A <strong>static IP address</strong> is entered manually and does not change unless it is changed manually or through network management. Static addresses may be used for servers, printers, network cameras, or devices that require predictable addressing.</p>
+          <p>A static address must be outside the router's DHCP automatic address range. Otherwise, the same address could later be assigned to another device and cause an address conflict.</p>
+
+          <h3>Configure a static IP in Windows</h3>
+          <ol>
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Select <strong>Network &amp; internet</strong>.</li>
+            <li>Choose <strong>Wi-Fi</strong> for a wireless connection or <strong>Ethernet</strong> for a wired connection.</li>
+            <li>Open the active network connection and find the IP assignment section.</li>
+            <li>Select <strong>Edit</strong> or <strong>Manage</strong> and change IPv4 settings from Automatic/DHCP to Manual.</li>
+            <li>Turn on IPv4, enter the static IP address, subnet prefix length, and gateway.</li>
+            <li>Enter the preferred and alternate DNS addresses if required.</li>
+            <li>Select <strong>Save</strong>.</li>
+            <li>Open Command Prompt and run <code>ipconfig</code> to verify the address.</li>
+          </ol>
+          <figure class="diagram-card">
+            <img src="images/static-ip-reference.png" alt="Windows Internet Protocol Version 4 Properties window showing static IP, subnet mask, and default gateway fields">
+            <figcaption>Reference: Static IP configuration window for Internet Protocol Version 4.</figcaption>
+          </figure>
+
+          <h3>Verify and test the setup</h3>
+          <p>In Windows, open Command Prompt and use the following commands:</p>
+                    <div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>Command Prompt</span><button class="copy-code" type="button">Copy</button></div><pre><code>ipconfig
+          ping 192.168.1.1</code></pre></div>
+          <p><code>ipconfig</code> displays the IPv4 address, subnet mask, and gateway. <code>ping</code> tests whether a computer can communicate with the gateway or another host. If the gateway responds but a website name does not, check the DNS settings.</p>
+        </article>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
