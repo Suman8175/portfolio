@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="1080" viewBox="0 0 840 1080">
+<title>Android Architecture</title>
+<g font-family="Arial, Helvetica, sans-serif" fill="#20262b" text-anchor="middle">
+<rect x="12" y="12" width="816" height="154" fill="#fff5e4" stroke="#59666a" stroke-width="1.6"/>
+<text x="420" y="50.0" font-size="24" font-weight="700" dominant-baseline="middle"><tspan x="420" dy="0">Applications</tspan></text>
+<rect x="44" y="96" width="138" height="46" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="119.0" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">Home</tspan></text>
+<rect x="196" y="96" width="138" height="46" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="119.0" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">Contact</tspan></text>
+<rect x="348" y="96" width="138" height="46" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="119.0" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">Phone</tspan></text>
+<rect x="500" y="96" width="138" height="46" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="569.0" y="119.0" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="569.0" dy="0">Browser</tspan></text>
+<rect x="652" y="96" width="138" height="46" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="721.0" y="119.0" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="721.0" dy="0">...</tspan></text>
+<rect x="12" y="166" width="816" height="274" fill="#fff5e4" stroke="#59666a" stroke-width="1.6"/>
+<text x="420" y="209.0" font-size="24" font-weight="700" dominant-baseline="middle"><tspan x="420" dy="0">Application Framework</tspan></text>
+<rect x="44" y="252" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="277.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">Activity</tspan><tspan x="113.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="196" y="252" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="277.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">Window</tspan><tspan x="265.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="348" y="252" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="277.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">Content</tspan><tspan x="417.0" dy="21.659999999999997">Provider</tspan></text>
+<rect x="500" y="252" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="569.0" y="277.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="569.0" dy="0">View</tspan><tspan x="569.0" dy="21.659999999999997">System</tspan></text>
+<rect x="652" y="252" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="721.0" y="277.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="721.0" dy="0">Notification</tspan><tspan x="721.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="44" y="343" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="368.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">Package</tspan><tspan x="113.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="196" y="343" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="368.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">Telephony</tspan><tspan x="265.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="348" y="343" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="368.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">Resource</tspan><tspan x="417.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="500" y="343" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="569.0" y="368.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="569.0" dy="0">Location</tspan><tspan x="569.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="652" y="343" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="721.0" y="368.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="721.0" dy="0">XMPP</tspan><tspan x="721.0" dy="21.659999999999997">Service</tspan></text>
+<rect x="12" y="440" width="816" height="360" fill="#e5fae9" stroke="#59666a" stroke-width="1.6"/>
+<text x="260" y="478.0" font-size="24" font-weight="700" dominant-baseline="middle"><tspan x="260" dy="0">Libraries</tspan></text>
+<rect x="44" y="522" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="547.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">Surface</tspan><tspan x="113.0" dy="21.659999999999997">Manager</tspan></text>
+<rect x="196" y="522" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="547.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">Media</tspan><tspan x="265.0" dy="21.659999999999997">Framework</tspan></text>
+<rect x="348" y="522" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="558.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">SQLite</tspan></text>
+<rect x="44" y="613" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="649.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">OpenGL|ES</tspan></text>
+<rect x="196" y="613" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="649.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">FreeType</tspan></text>
+<rect x="348" y="613" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="649.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">WebKit</tspan></text>
+<rect x="44" y="704" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="740.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">SGL</tspan></text>
+<rect x="196" y="704" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="740.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">SSL</tspan></text>
+<rect x="348" y="704" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="740.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">libc</tspan></text>
+<rect x="508" y="440" width="320" height="280" fill="#eee8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="668" y="478.0" font-size="24" font-weight="700" dominant-baseline="middle"><tspan x="668" dy="0">Android Runtime</tspan></text>
+<rect x="572" y="522" width="192" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="668.0" y="547.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="668.0" dy="0">Android Runtime</tspan><tspan x="668.0" dy="21.659999999999997">(ART)</tspan></text>
+<rect x="572" y="613" width="192" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="668.0" y="649.5" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="668.0" dy="0">Core Libraries</tspan></text>
+<rect x="12" y="800" width="816" height="268" fill="#fce5e8" stroke="#59666a" stroke-width="1.6"/>
+<text x="420" y="843.0" font-size="24" font-weight="700" dominant-baseline="middle"><tspan x="420" dy="0">Linux Kernel</tspan></text>
+<rect x="44" y="886" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="911.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">Display</tspan><tspan x="113.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="196" y="886" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="911.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">Camera</tspan><tspan x="265.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="348" y="886" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="911.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">Bluetooth</tspan><tspan x="417.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="500" y="886" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="569.0" y="911.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="569.0" dy="0">Flash Memory</tspan><tspan x="569.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="652" y="886" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="721.0" y="911.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="721.0" dy="0">Binder(IPC)</tspan><tspan x="721.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="44" y="977" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="113.0" y="1002.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="113.0" dy="0">USB</tspan><tspan x="113.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="196" y="977" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="265.0" y="1002.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="265.0" dy="0">Keypad</tspan><tspan x="265.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="348" y="977" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="417.0" y="1002.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="417.0" dy="0">WiFi</tspan><tspan x="417.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="500" y="977" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="569.0" y="1002.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="569.0" dy="0">Audio</tspan><tspan x="569.0" dy="21.659999999999997">Driver</tspan></text>
+<rect x="652" y="977" width="138" height="73" fill="#e4f8fa" stroke="#59666a" stroke-width="1.6"/>
+<text x="721.0" y="1002.67" font-size="19" font-weight="400" dominant-baseline="middle"><tspan x="721.0" dy="0">Power</tspan><tspan x="721.0" dy="21.659999999999997">Management</tspan></text>
+</g></svg>

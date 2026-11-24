@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" role="img" aria-labelledby="title desc">
+  <title id="title">Dalvik versus Android Runtime</title>
+  <desc id="desc">A themed comparison showing DVM using DEX bytecode with a Just-In-Time compiler and ART using native code with Ahead-of-Time compilation.</desc>
+  <rect width="1000" height="520" rx="12" fill="#fffdf8"/>
+  <text x="500" y="48" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-size="26" font-weight="700" fill="#202329">Dalvik vs Android Runtime</text>
+
+  <g>
+    <rect x="55" y="88" width="390" height="390" rx="10" fill="#f2eadb" stroke="#d6cdbc" stroke-width="2"/>
+    <text x="250" y="126" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-size="22" font-weight="700" fill="#e45d3c">Dalvik Virtual Machine</text>
+
+    <rect x="145" y="155" width="210" height="58" rx="8" fill="#fffdf8" stroke="#4d8984" stroke-width="2"/>
+    <text x="250" y="190" text-anchor="middle" font-family="DM Mono, monospace" font-size="18" font-weight="700" fill="#202329">DEX bytecode</text>
+
+    <rect x="145" y="246" width="210" height="58" rx="8" fill="#dce7df" stroke="#4d8984" stroke-width="2"/>
+    <text x="250" y="281" text-anchor="middle" font-family="DM Mono, monospace" font-size="17" font-weight="700" fill="#202329">JIT Compiler</text>
+
+    <rect x="145" y="337" width="210" height="58" rx="8" fill="#202329"/>
+    <text x="250" y="372" text-anchor="middle" font-family="DM Mono, monospace" font-size="16" font-weight="700" fill="#fffdf8">DVM Runtime</text>
+
+    <g fill="none" stroke="#e45d3c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M250 213v33M250 246l-8-16M250 246l8-16"/>
+      <path d="M250 304v33M250 337l-8-16M250 337l8-16"/>
+    </g>
+    <text x="250" y="426" text-anchor="middle" font-family="DM Mono, monospace" font-size="13" fill="#656b72">compiled at runtime</text>
+  </g>
+
+  <g>
+    <rect x="555" y="88" width="390" height="390" rx="10" fill="#f2eadb" stroke="#d6cdbc" stroke-width="2"/>
+    <text x="750" y="126" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-size="22" font-weight="700" fill="#4d8984">Android Runtime</text>
+
+    <rect x="645" y="155" width="210" height="58" rx="8" fill="#fffdf8" stroke="#4d8984" stroke-width="2"/>
+    <text x="750" y="190" text-anchor="middle" font-family="DM Mono, monospace" font-size="18" font-weight="700" fill="#202329">DEX bytecode</text>
+
+    <rect x="645" y="246" width="210" height="58" rx="8" fill="#dce7df" stroke="#4d8984" stroke-width="2"/>
+    <text x="750" y="281" text-anchor="middle" font-family="DM Mono, monospace" font-size="17" font-weight="700" fill="#202329">AOT Compiler</text>
+
+    <rect x="645" y="337" width="210" height="58" rx="8" fill="#202329"/>
+    <text x="750" y="372" text-anchor="middle" font-family="DM Mono, monospace" font-size="16" font-weight="700" fill="#fffdf8">Native code</text>
+
+    <g fill="none" stroke="#e45d3c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M750 213v33M750 246l-8-16M750 246l8-16"/>
+      <path d="M750 304v33M750 337l-8-16M750 337l8-16"/>
+    </g>
+    <text x="750" y="426" text-anchor="middle" font-family="DM Mono, monospace" font-size="13" fill="#656b72">compiled during install</text>
+  </g>
+
+  <g font-family="DM Mono, monospace" text-anchor="middle">
+    <rect x="445" y="238" width="110" height="76" rx="38" fill="#fffdf8" stroke="#e45d3c" stroke-width="2"/>
+    <text x="500" y="270" font-size="15" font-weight="700" fill="#e45d3c">Runtime</text>
+    <text x="500" y="294" font-size="13" fill="#656b72">DVM / ART</text>
+  </g>
+</svg>

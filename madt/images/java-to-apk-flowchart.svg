@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" role="img" aria-labelledby="title">
+<title id="title">Java source code to APK compilation and packaging</title>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#222"/></marker></defs>
+<g fill="none" stroke="#222" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M180 114 V165"/><path d="M180 245 V296"/><path d="M300 316 L441 244"/><path d="M755 165 L900 85"/><path d="M1020 114 V165"/><path d="M1020 245 V296"/>
+</g>
+<g fill="#fff" stroke="#333" stroke-width="2.5">
+<rect x="60" y="30" width="240" height="84"/><ellipse cx="180" cy="205" rx="150" ry="40"/><rect x="60" y="296" width="240" height="84"/>
+<ellipse cx="600" cy="205" rx="170" ry="51" transform="rotate(-17 600 205)"/>
+<rect x="900" y="30" width="240" height="84"/><ellipse cx="1020" cy="205" rx="150" ry="40"/><rect x="900" y="296" width="240" height="84"/>
+</g>
+<g fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" text-anchor="middle">
+<text x="180" y="65">.java files<tspan x="180" dy="28">Source Code</tspan></text>
+<text x="180" y="199">Java compiler<tspan x="180" dy="27">(javac)</tspan></text>
+<text x="180" y="345">.class files</text>
+<text x="600" y="199">Dex Compiler<tspan x="600" dy="27">(dx)</tspan></text>
+<text x="1020" y="79">.dex file</text>
+<text x="1020" y="199">Packaging<tspan x="1020" dy="27">(aapt)</tspan></text>
+<text x="1020" y="345">.apk file</text>
+</g></svg>

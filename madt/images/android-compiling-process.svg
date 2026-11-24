@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">Compiling process of an Android application</title>
+  <desc id="desc">Java source code is compiled to class files and then converted with the DEX compiler to DEX bytecode before packaging into an APK file.</desc>
+  <rect width="1000" height="430" rx="12" fill="#fffdf8"/>
+  <g font-family="Manrope, Arial, sans-serif" fill="#202329">
+    <text x="500" y="48" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-size="26" font-weight="700">Android application compiling process</text>
+  </g>
+
+  <g stroke="#4d8984" stroke-width="3" fill="#fffdf8">
+    <rect x="55" y="92" width="230" height="92" rx="8"/>
+    <rect x="55" y="280" width="230" height="92" rx="8"/>
+    <rect x="385" y="92" width="230" height="92" rx="8"/>
+    <rect x="385" y="280" width="230" height="92" rx="8"/>
+    <rect x="715" y="92" width="230" height="92" rx="8"/>
+  </g>
+
+  <g font-family="DM Mono, monospace" fill="#202329" text-anchor="middle">
+    <text x="170" y="130" font-size="17" font-weight="700">.java files</text>
+    <text x="170" y="157" font-size="14" fill="#656b72">Source code</text>
+
+    <text x="170" y="318" font-size="17" font-weight="700">.class files</text>
+    <text x="170" y="345" font-size="14" fill="#656b72">Java bytecode</text>
+
+    <text x="500" y="130" font-size="17" font-weight="700">.dex file</text>
+    <text x="500" y="157" font-size="14" fill="#656b72">DEX bytecode</text>
+
+    <text x="500" y="318" font-size="17" font-weight="700">Packaging</text>
+    <text x="500" y="345" font-size="14" fill="#656b72">APT / Android build tools</text>
+
+    <text x="830" y="130" font-size="17" font-weight="700">.apk file</text>
+    <text x="830" y="157" font-size="14" fill="#656b72">Installable package</text>
+  </g>
+
+  <g fill="none" stroke="#e45d3c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170 184v62"/>
+    <path d="M170 246l-8-16M170 246l8-16"/>
+
+    <path d="M285 326h58"/>
+    <path d="M343 326l-16-8M343 326l-16 8"/>
+
+    <path d="M615 138h66"/>
+    <path d="M681 138l-16-8M681 138l-16 8"/>
+
+    <path d="M830 184v62"/>
+    <path d="M830 246l-8-16M830 246l8-16"/>
+  </g>
+
+  <g>
+    <rect x="322" y="208" width="356" height="70" rx="35" fill="#eee8db" stroke="#d6cdbc" stroke-width="2"/>
+    <text x="500" y="237" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700" fill="#202329">DEX Compiler</text>
+    <text x="500" y="263" text-anchor="middle" font-family="DM Mono, monospace" font-size="14" fill="#656b72">.class → .dex bytecode</text>
+  </g>
+
+  <g fill="#e45d3c">
+    <circle cx="170" cy="184" r="5"/>
+    <circle cx="285" cy="326" r="5"/>
+    <circle cx="615" cy="138" r="5"/>
+  </g>
+
+  <g font-family="DM Mono, monospace" font-size="13" fill="#656b72" text-anchor="middle">
+    <text x="170" y="226">javac compiler</text>
+    <text x="306" y="304">convert</text>
+    <text x="645" y="116">dex compiler</text>
+  </g>
+</svg>
