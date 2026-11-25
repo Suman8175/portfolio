@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 600 660" role="img" aria-labelledby="title"><title id="title">Android Activity Life Cycle</title><defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 L10 5 L1 9 Z" fill="white" stroke="#444" stroke-width="1.6" stroke-linejoin="round"/></marker></defs>
+<path d="M 285 42 V 65" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 95 V 119" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 148 V 173" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 202 V 226" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 264 V 271" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" />
+<path d="M 285 312 V 339" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 367 V 375" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" />
+<path d="M 285 415 V 438" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 466 V 474" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" />
+<path d="M 285 514 V 543" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 285 571 V 596" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 450 136 H 325" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 323 354 H 443 V 189 H 331" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 319 453 H 494 V 155" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 251 453 H 94 V 273" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 247 354 H 158" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" />
+<path d="M 91 229 V 22 H 216" fill="none" stroke="#555" stroke-width="1.7" stroke-dasharray="3 2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="222" y="5" width="126" height="37" rx="9" fill="#a6d9e1" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="23.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#303030">Activity launched</text>
+<rect x="247" y="68" width="76" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="81.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onCreate()</text>
+<rect x="251" y="122" width="68" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="135.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onStart()</text>
+<rect x="450" y="122" width="80" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="490.0" y="135.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onRestart()</text>
+<rect x="244" y="176" width="82" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="189.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onResume()</text>
+<rect x="226" y="230" width="118" height="36" rx="9" fill="#dbe794" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="248.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#303030">Activity running</text>
+<rect x="226" y="273" width="118" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="287.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">Another activity comes</text>
+<text x="285.0" y="299.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">into the foreground</text>
+<rect x="248" y="342" width="74" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="355.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onPause()</text>
+<rect x="240" y="377" width="90" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="391.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">The activity is</text>
+<text x="285.0" y="403.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">no longer visible</text>
+<rect x="251" y="440" width="68" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="453.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onStop()</text>
+<rect x="209" y="476" width="152" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="490.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">The activity is finishing or</text>
+<text x="285.0" y="502.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">being destroyed by the system</text>
+<rect x="244" y="546" width="82" height="27" rx="9" fill="#d9dddf" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="559.5" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#303030">onDestroy()</text>
+<rect x="219" y="599" width="132" height="36" rx="9" fill="#f5b39a" stroke="#505050" stroke-width="2"/>
+<text x="285.0" y="617.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#303030">Activity shut down</text>
+<rect x="29" y="230" width="132" height="36" rx="9" fill="#f5b39a" stroke="#505050" stroke-width="2"/>
+<text x="95.0" y="248.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#303030">App process killed</text>
+<rect x="47" y="161" width="84" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="89.0" y="175.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">User navigates</text>
+<text x="89.0" y="187.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">to the activity</text>
+<rect x="32" y="334" width="125" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="94.5" y="348.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">Apps with higher priority</text>
+<text x="94.5" y="360.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">need memory</text>
+<rect x="404" y="300" width="80" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="444.0" y="314.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">User returns</text>
+<text x="444.0" y="326.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">to the activity</text>
+<rect x="452" y="399" width="84" height="40" rx="9" fill="white" stroke="#505050" stroke-width="2"/>
+<text x="494.0" y="413.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">User navigates</text>
+<text x="494.0" y="425.0" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#303030">to the activity</text>
+</svg>

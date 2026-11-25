@@ -90,6 +90,9 @@
             <article class="topic-card"><h3>2.2.1 Kernel</h3><p>The central part of an operating system and the Linux kernel features.</p></article>
             <article class="topic-card"><h3>2.2.2 Android Runtime</h3><p>DVM, ART, and comparison of JIT and AOT compilation.</p></article>
             <article class="topic-card"><h3>2.2.3 Android OS architecture</h3><p>Applications, Application Framework, Libraries, Android Runtime, and Linux Kernel.</p></article>
+            <article class="topic-card"><h3>2.3 Android Application Components</h3><p>Activities and the Android Manifest File.</p></article>
+            <article class="topic-card"><h3>2.3.1 Activity and Its Life Cycle</h3><p>Activity life cycle callbacks and their major functions.</p></article>
+            <article class="topic-card"><h3>2.3.2 Android Manifest File</h3><p>Manifest functions, example, and key elements.</p></article>
           </div>
           <p class="empty-state" id="empty-state">No topic matches that search yet.</p>
           <div class="notes-content">
@@ -434,6 +437,173 @@
 
             <h4>d. OpenGL ES</h4>
             <p>OpenGL ES stands for Open Graphics Library for Embedded Systems. It provides APIs for rendering two-dimensional and three-dimensional graphics. It is commonly used in mobile games, animations and graphics-intensive applications.</p>
+
+            <h2>2.3 Android Application Components</h2>
+
+            <h3>2.3.1 Activity and Its Life Cycle</h3>
+            <p>An Activity is one of the fundamental components of an Android application. It represents a screen with a user interface through which users can interact with the application. It provides a window in which an application can display different user interface elements, such as text, buttons, images, input fields and menus. An Android application may consist of a single Activity or multiple Activities, depending on its design and functionality.</p>
+
+            <h4>Activity Life Cycle</h4>
+            <figure class="diagram-card">
+              <img src="images/android_activity_lifecycle.svg" alt="Diagram of the Android Activity life cycle callbacks and transitions" />
+              <figcaption>Android Activity life cycle.</figcaption>
+            </figure>
+
+            <h4>a) onCreate()</h4>
+            <p>The onCreate() method is the first life cycle callback method called when an Activity is created. It is responsible for initializing the Activity and preparing the necessary resources required for its operation.</p>
+            <p>In this method, the developer defines the user interface, initializes variables, connects user interface components with application logic and restores any previously saved Activity state.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Initializes variables and application components.</li>
+              <li>Loads the user interface using setContentView() for XML-based layouts or setContent() for Jetpack Compose.</li>
+              <li>Initializes objects and necessary resources.</li>
+              <li>Registers event listeners for user interface components</li>
+            </ul>
+
+            <h4>b) onStart()</h4>
+            <p>The onStart() method is called when an Activity becomes visible to the user. At this stage, the Activity prepares to enter the foreground and become interactive.</p>
+            <p>This method is called after onCreate() when the Activity is created for the first time, or after onRestart() when a previously stopped Activity becomes visible again.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Makes the Activity visible to the user.</li>
+              <li>Prepares resources required while the Activity is visible.</li>
+              <li>Starts operations related to displaying information</li>
+            </ul>
+
+            <h4>c) onResume()</h4>
+            <p>The onResume() method is called when an Activity enters the foreground and becomes ready for user interaction. At this stage, the user can interact with the Activity by clicking buttons, entering text, scrolling and performing other actions.</p>
+            <p>The Activity remains in the resumed state until an event occurs that causes it to leave this state.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Allows the user to interact with the Activity.</li>
+              <li>Starts or resumes animations.</li>
+              <li>Resumes operations that were previously paused.</li>
+              <li>Activates resources that are required during active user interaction.</li>
+            </ul>
+
+            <h4>d) onPause()</h4>
+            <p>The onPause() method is called when an Activity begins to leave the resumed state. This usually happens when another Activity comes into the foreground or when the current Activity temporarily loses focus.</p>
+            <p>The Activity may still be partially or fully visible to the user, but it is no longer in its normal resumed state.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Pauses operations that require active user interaction.</li>
+              <li>Pauses animations or other unnecessary processing.</li>
+              <li>Releases resources that are required only during the resumed state.</li>
+            </ul>
+
+            <h4>e) onStop()</h4>
+            <p>The onStop() method is called when an Activity is no longer visible to the user. This may occur when the user switches to another application, presses the Home button or opens another Activity that completely covers the current Activity.</p>
+            <p>Although the Activity is no longer visible, its instance may still remain in memory. Therefore, the user may return to the Activity without creating it again.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Stops operations that are unnecessary when the Activity is not visible.</li>
+              <li>Releases resources that are no longer required.</li>
+            </ul>
+
+            <h4>f) onRestart()</h4>
+            <p>The onRestart() method is called when a previously stopped Activity is about to become visible again.</p>
+            <p>This method allows the Activity to prepare itself before returning to the foreground. Unlike onCreate(), it is called when an existing Activity instance is being reused rather than created for the first time.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Prepares a previously stopped Activity to become active again.</li>
+              <li>Reinitializes necessary resources, if required.</li>
+              <li>Refreshes application information when necessary.</li>
+            </ul>
+
+            <h4>g) onDestroy()</h4>
+            <p>The onDestroy() method is the final life cycle callback method normally called before an Activity instance is destroyed.</p>
+            <p>An Activity may be destroyed when the user finishes it, when the developer explicitly calls the finish() method or when Android recreates the Activity because of a configuration change, such as a change in screen orientation.</p>
+            <p><strong>Major functions:</strong></p>
+            <ul>
+              <li>Performs final cleanup operations.</li>
+              <li>Releases remaining Activity-specific resources.</li>
+              <li>Unregisters remaining listeners and callbacks.</li>
+              <li>Cleans up objects and operations associated with the Activity.</li>
+            </ul>
+
+            <h3>2.3.2 Android Manifest File</h3>
+            <p>The Android Manifest File is an essential configuration file in every Android application. It contains important information about the application that the Android operating system needs to know before the application can be installed and executed.</p>
+            <p>The file is named AndroidManifest.xml and is written in XML (Extensible Markup Language). It acts as a communication link between the Android application and the Android operating system.</p>
+            <p>The manifest file provides information about the application's components, required permissions, hardware and software requirements, and other important configurations.</p>
+
+            <h4>Functions of Android Manifest File</h4>
+            <p>The Android Manifest File performs several important functions that help the Android operating system understand and manage an application.</p>
+            <ul>
+              <li><strong>Declares Application Components</strong><br>The manifest file declares the important components used by an Android application, including Activities, Services, Broadcast Receivers, and Content Providers.</li>
+              <li><strong>Specifies Application Permissions</strong><br>The manifest file declares the permissions required by the application to access protected system resources and features.</li>
+              <li><strong>Defines Application Information</strong><br>It provides important information about the application, such as its name, icon, theme, and other application-level settings.</li>
+            </ul>
+
+            <p><strong>Example of Manifest File:</strong></p>
+            <div class="code-card"><pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"&gt;
+        &lt;activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication"&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</code></pre></div>
+
+            <h4>Explanation of Manifest Tags:</h4>
+
+            <h4>- &lt;manifest&gt; Element</h4>
+            <p>The &lt;manifest&gt; element is the root element of the Android Manifest File. All other manifest elements are placed inside it.</p>
+            <p>It defines the Android XML namespace and acts as the main container for the application's configuration.</p>
+            <p><strong>Example:</strong></p>
+            <div class="code-card"><pre><code>&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+
+    &lt;!-- Application declarations --&gt;
+
+&lt;/manifest&gt;</code></pre></div>
+
+            <h4>- &lt;application&gt; Element</h4>
+            <p>The &lt;application&gt; element contains information and settings related to the Android application.</p>
+            <p>It defines application-wide properties, such as the application name, icon, theme, and other configuration settings.</p>
+            <p><strong>Example:</strong></p>
+            <div class="code-card"><pre><code>&lt;application
+    android:label="My Application"
+    android:icon="@mipmap/ic_launcher"
+    android:theme="@style/Theme.MyApplication"&gt;
+
+&lt;/application&gt;</code></pre></div>
+
+            <h4>- &lt;activity&gt; Element</h4>
+            <p>The &lt;activity&gt; element declares an Activity used in the application.</p>
+            <p>An Activity represents an entry point for user interaction, usually providing a screen where users can perform different tasks.</p>
+            <p>Every Activity that needs to be registered with the Android system must be declared in the manifest file.</p>
+            <p><strong>Example:</strong></p>
+            <div class="code-card"><pre><code>&lt;activity
+    android:name=".MainActivity"
+    android:exported="true" /&gt;</code></pre></div>
+
+            <h4>- &lt;uses-permission&gt; Element</h4>
+            <p>The &lt;uses-permission&gt; element declares the permissions required by an application to access protected features or resources of the Android system.</p>
+            <p>For example, applications may need permission to access the internet, camera, microphone, or location.</p>
+            <p><strong>Example:</strong></p>
+            <div class="code-card"><pre><code>&lt;uses-permission
+    android:name="android.permission.INTERNET" /&gt;
+
+&lt;uses-permission
+    android:name="android.permission.CAMERA" /&gt;</code></pre></div>
           </div>
         </section>
         <div class="next-unit"><p>Next: explore Android application development and user interfaces.</p><a href="unit3.html">Next unit &rarr;</a></div>
