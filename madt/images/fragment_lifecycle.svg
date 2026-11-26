@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .header-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 21px;
+        font-weight: 500;
+        fill: #111111;
+        text-anchor: middle;
+      }
+      .state-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        fill: #111111;
+        text-anchor: middle;
+      }
+      .callback-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 19px;
+        font-weight: 500;
+        fill: #111111;
+        text-anchor: middle;
+      }
+      .box-blue {
+        fill: #b4d2fa;
+        stroke: #2b4c7e;
+        stroke-width: 1.5;
+      }
+      .box-orange {
+        fill: #fac378;
+        stroke: #784b14;
+        stroke-width: 1.5;
+      }
+      .line-solid {
+        stroke: #b8bec4;
+        stroke-width: 1.5;
+      }
+      .line-dashed {
+        stroke: #b8bec4;
+        stroke-width: 1.5;
+        stroke-dasharray: 5, 6;
+      }
+      .arrow-shaft {
+        stroke: #111111;
+        stroke-width: 2;
+      }
+      .arrow-casing {
+        stroke: #ffffff;
+        stroke-width: 8;
+      }
+      .arrow-head {
+        fill: #111111;
+      }
+    </style>
+  </defs>
+
+  
+  <rect class="bg" x="0" y="0" width="800" height="1000" />
+
+  
+  <text class="header-text" x="122" y="32">Fragment Lifecycle</text>
+  <text class="header-text" x="400" y="32">Fragment Callbacks</text>
+  <text class="header-text" x="678" y="32">View Lifecycle</text>
+
+  
+  <line class="line-solid" x1="0" y1="48" x2="800" y2="48" />
+  <line class="line-dashed" x1="256" y1="131" x2="800" y2="131" />
+  <line class="line-dashed" x1="256" y1="289" x2="800" y2="289" />
+  <line class="line-solid" x1="0" y1="380" x2="800" y2="380" />
+  <line class="line-solid" x1="0" y1="471" x2="800" y2="471" />
+  <line class="line-solid" x1="0" y1="561" x2="800" y2="561" />
+  <line class="line-solid" x1="0" y1="651" x2="800" y2="651" />
+  <line class="line-dashed" x1="256" y1="811" x2="800" y2="811" />
+  <line class="line-solid" x1="0" y1="911" x2="800" y2="911" />
+
+  
+  <text class="state-text" x="122" y="221">CREATED</text>
+  <text class="state-text" x="122" y="433">STARTED</text>
+  <text class="state-text" x="122" y="523">RESUMED</text>
+  <text class="state-text" x="122" y="613">STARTED</text>
+  <text class="state-text" x="122" y="788">CREATED</text>
+  <text class="state-text" x="122" y="963">DESTROYED</text>
+
+  
+  <text class="state-text" x="678" y="217">INITIALIZED</text>
+  <text class="state-text" x="678" y="341">CREATED</text>
+  <text class="state-text" x="678" y="433">STARTED</text>
+  <text class="state-text" x="678" y="523">RESUMED</text>
+  <text class="state-text" x="678" y="613">STARTED</text>
+  <text class="state-text" x="678" y="738">CREATED</text>
+  <text class="state-text" x="678" y="868">DESTROYED</text>
+
+  
+  
+  <line class="arrow-casing" x1="400" y1="112" x2="400" y2="144" />
+  <line class="arrow-shaft" x1="400" y1="110" x2="400" y2="144" />
+  <polygon class="arrow-head" points="400,153 394.5,142 405.5,142" />
+
+  
+  <line class="arrow-shaft" x1="400" y1="198" x2="400" y2="213" />
+  <polygon class="arrow-head" points="400,222 394.5,211 405.5,211" />
+
+  
+  <line class="arrow-casing" x1="400" y1="270" x2="400" y2="302" />
+  <line class="arrow-shaft" x1="400" y1="268" x2="400" y2="302" />
+  <polygon class="arrow-head" points="400,311 394.5,300 405.5,300" />
+
+  
+  <line class="arrow-casing" x1="400" y1="358" x2="400" y2="394" />
+  <line class="arrow-shaft" x1="400" y1="356" x2="400" y2="394" />
+  <polygon class="arrow-head" points="400,403 394.5,392 405.5,392" />
+
+  
+  <line class="arrow-casing" x1="400" y1="450" x2="400" y2="484" />
+  <line class="arrow-shaft" x1="400" y1="448" x2="400" y2="484" />
+  <polygon class="arrow-head" points="400,493 394.5,482 405.5,482" />
+
+  
+  <line class="arrow-casing" x1="400" y1="540" x2="400" y2="574" />
+  <line class="arrow-shaft" x1="400" y1="538" x2="400" y2="574" />
+  <polygon class="arrow-head" points="400,583 394.5,572 405.5,572" />
+
+  
+  <line class="arrow-casing" x1="400" y1="630" x2="400" y2="664" />
+  <line class="arrow-shaft" x1="400" y1="628" x2="400" y2="664" />
+  <polygon class="arrow-head" points="400,673 394.5,662 405.5,662" />
+
+  
+  <line class="arrow-shaft" x1="400" y1="718" x2="400" y2="733" />
+  <polygon class="arrow-head" points="400,742 394.5,731 405.5,731" />
+
+  
+  <line class="arrow-casing" x1="400" y1="790" x2="400" y2="824" />
+  <line class="arrow-shaft" x1="400" y1="788" x2="400" y2="824" />
+  <polygon class="arrow-head" points="400,833 394.5,822 405.5,822" />
+
+  
+  <line class="arrow-casing" x1="400" y1="880" x2="400" y2="924" />
+  <line class="arrow-shaft" x1="400" y1="878" x2="400" y2="924" />
+  <polygon class="arrow-head" points="400,933 394.5,922 405.5,922" />
+
+  
+  
+  <rect class="box-blue" x="277" y="66" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="95">onCreate()</text>
+
+  <rect class="box-blue" x="277" y="154" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="183">onCreateView()</text>
+
+  <rect class="box-blue" x="277" y="224" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="253">onViewCreated()</text>
+
+  <rect class="box-blue" x="277" y="312" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="341">onViewStateRestored()</text>
+
+  <rect class="box-blue" x="277" y="404" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="433">onStart()</text>
+
+  <rect class="box-blue" x="277" y="494" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="523">onResume()</text>
+
+  
+  <rect class="box-orange" x="277" y="584" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="613">onPause()</text>
+
+  <rect class="box-orange" x="277" y="674" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="703">onStop()</text>
+
+  <rect class="box-orange" x="277" y="744" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="773">onSaveInstanceState()</text>
+
+  <rect class="box-orange" x="277" y="834" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="863">onDestroyView()</text>
+
+  <rect class="box-orange" x="277" y="934" width="246" height="44" rx="6" ry="6" />
+  <text class="callback-text" x="400" y="963">onDestroy()</text>
+</svg>

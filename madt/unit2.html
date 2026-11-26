@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="styles.css?v=20261118">
   <style>
     .version-history { margin: 42px 0 46px; padding: 25px; background: rgba(255, 253, 248, .58); border: 1px solid var(--line, #ded7c9); border-radius: 8px; }
+    .past-syllabus { margin: 22px 0 30px; padding: 18px 22px; background: rgba(242, 234, 219, .55); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 6px; }
+    .past-syllabus-label { display: inline-block; margin-bottom: 10px; padding: 4px 8px; color: var(--ink-soft); background: rgba(255, 253, 248, .75); border: 1px solid var(--line); border-radius: 3px; font: .64rem var(--mono); letter-spacing: .06em; }
+    .past-syllabus h3 { margin-top: 0; }
+    .past-syllabus h4 { margin-top: 0; }
+    .past-syllabus .diagram-card { margin-bottom: 0; }
     .version-history-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 25px; }
     .version-history-heading .eyebrow { margin-bottom: 8px; }
     .version-history-heading h3 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); }
@@ -80,23 +85,14 @@
         </div>
         <section class="notes-body">
           <div class="topic-index">
-            <article class="topic-card"><h3>2.1 Introduction to Android</h3><p>Android is an open-source, Linux-based mobile operating system developed by Google.</p></article>
-            <article class="topic-card"><h3>2.1.1 Brief history</h3><p>Key events from Android Inc. through Android 17.</p></article>
-            <article class="topic-card"><h3>2.1.2 Android Market Share and Impact in Mobile Development</h3><p>Android's market share and impact on mobile development.</p></article>
-            <article class="topic-card"><h3>2.1.3. Features of Android</h3><p>Connectivity, storage, media, hardware, multitasking, security, UI, and more.</p></article>
-            <article class="topic-card"><h3>2.1.4. Advantages (Pros) of Android</h3><p>Open source, device choice, customization, app ecosystem, and developer-friendly tools.</p></article>
-            <article class="topic-card"><h3>2.1.5. Disadvantages (Cons) of Android</h3><p>Fragmentation, uneven updates, malware risk, bloatware, privacy concerns, and more.</p></article>
-            <article class="topic-card"><h3>2.2 Android Architecture Overview</h3><p>Kernel and Android runtime concepts.</p></article>
-            <article class="topic-card"><h3>2.2.1 Kernel</h3><p>The central part of an operating system and the Linux kernel features.</p></article>
-            <article class="topic-card"><h3>2.2.2 Android Runtime</h3><p>DVM, ART, and comparison of JIT and AOT compilation.</p></article>
-            <article class="topic-card"><h3>2.2.3 Android OS architecture</h3><p>Applications, Application Framework, Libraries, Android Runtime, and Linux Kernel.</p></article>
-            <article class="topic-card"><h3>2.3 Android Application Components</h3><p>Activities and the Android Manifest File.</p></article>
-            <article class="topic-card"><h3>2.3.1 Activity and Its Life Cycle</h3><p>Activity life cycle callbacks and their major functions.</p></article>
-            <article class="topic-card"><h3>2.3.2 Android Manifest File</h3><p>Manifest functions, example, and key elements.</p></article>
+            <a class="topic-card" href="#android-introduction"><h3>2.1 Introduction to Android</h3><p>Android is an open-source, Linux-based mobile operating system developed by Google.</p></a>
+            <a class="topic-card" href="#android-architecture"><h3>2.2 Android Architecture Overview</h3><p>Kernel and Android runtime concepts.</p></a>
+            <a class="topic-card" href="#application-components"><h3>2.3 Android Application Components</h3><p>Activities and the Android Manifest File.</p></a>
+            <a class="topic-card" href="#intents"><h3>2.5 Intent and its type</h3><p>Intent purposes, explicit intents, and implicit intents.</p></a>
           </div>
           <p class="empty-state" id="empty-state">No topic matches that search yet.</p>
           <div class="notes-content">
-            <h2>2.1 Introduction to Android</h2>
+            <h2 id="android-introduction">2.1 Introduction to Android</h2>
             <p>Android is an open-source, Linux-based mobile operating system developed by Google. It runs on smartphones, tablets, smart TVs (Google TV), wearables (Wear OS), cars (Android Auto / Automotive) and many other devices. It is the most widely used mobile operating system in the world.</p>
             <p><strong>Key points:</strong></p>
             <ul>
@@ -222,7 +218,7 @@
               <li><strong>Inconsistent user experience</strong> – Each manufacturer's custom skin looks and works differently.</li>
             </ol>
 
-            <h2>2.2 Android Architecture Overview</h2>
+            <h2 id="android-architecture">2.2 Android Architecture Overview</h2>
 
             <h3>2.2.1 Kernel</h3>
             <p>A kernel is the central part of an operating system. It runs with high privileges and controls important system resources.</p>
@@ -342,12 +338,15 @@
               <figcaption>Compiling process of an Android application.</figcaption>
             </figure>
 
-            <h3>Dalvik Virtual Machine (DVM) in Android</h3>
-            <p>DVM (Dalvik Virtual Machine) is a virtual machine that was developed by Google to execute Android applications. It was the primary application runtime used in earlier versions of the Android operating system, before being replaced by Android Runtime (ART).</p>
-            <p>DVM was specially designed for mobile devices that had limited resources, such as low processing power, small memory capacity (RAM), and limited battery life.</p>
-            <p>Android applications were commonly developed using the Java programming language. However, Android did not directly execute standard Java bytecode using the traditional Java Virtual Machine (JVM). Instead, Android used Dalvik Virtual Machine to execute a special type of bytecode called Dalvik Executable (DEX) bytecode.</p>
-            <p>The DEX bytecode was stored in files with the .dex extension.</p>
-            <p>Starting with Android 2.2 (Froyo), Dalvik included a Just-In-Time compiler to improve execution performance.</p>
+            <div class="past-syllabus">
+              <span class="past-syllabus-label">Past syllabus</span>
+              <h3>Dalvik Virtual Machine (DVM) in Android</h3>
+              <p>DVM (Dalvik Virtual Machine) is a virtual machine that was developed by Google to execute Android applications. It was the primary application runtime used in earlier versions of the Android operating system, before being replaced by Android Runtime (ART).</p>
+              <p>DVM was specially designed for mobile devices that had limited resources, such as low processing power, small memory capacity (RAM), and limited battery life.</p>
+              <p>Android applications were commonly developed using the Java programming language. However, Android did not directly execute standard Java bytecode using the traditional Java Virtual Machine (JVM). Instead, Android used Dalvik Virtual Machine to execute a special type of bytecode called Dalvik Executable (DEX) bytecode.</p>
+              <p>The DEX bytecode was stored in files with the .dex extension.</p>
+              <p>Starting with Android 2.2 (Froyo), Dalvik included a Just-In-Time compiler to improve execution performance.</p>
+            </div>
 
             <h3>Android Runtime (ART)</h3>
             <p>Android Runtime (ART) is the managed application execution environment used by the Android operating system. It is responsible for executing Android application bytecode, managing application memory, performing garbage collection, and supporting efficient application execution.</p>
@@ -438,7 +437,7 @@
             <h4>d. OpenGL ES</h4>
             <p>OpenGL ES stands for Open Graphics Library for Embedded Systems. It provides APIs for rendering two-dimensional and three-dimensional graphics. It is commonly used in mobile games, animations and graphics-intensive applications.</p>
 
-            <h2>2.3 Android Application Components</h2>
+            <h2 id="application-components">2.3 Android Application Components</h2>
 
             <h3>2.3.1 Activity and Its Life Cycle</h3>
             <p>An Activity is one of the fundamental components of an Android application. It represents a screen with a user interface through which users can interact with the application. It provides a window in which an application can display different user interface elements, such as text, buttons, images, input fields and menus. An Android application may consist of a single Activity or multiple Activities, depending on its design and functionality.</p>
@@ -604,6 +603,326 @@
 
 &lt;uses-permission
     android:name="android.permission.CAMERA" /&gt;</code></pre></div>
+
+            <h3>2.3.4 Working Mechanism of Permissions in Android</h3>
+            <p>The Android permission mechanism involves several steps, from declaring permissions during application development to granting and verifying permissions during application execution.</p>
+
+            <h4>Declaration of Permission</h4>
+            <p>The developer first identifies the resources required by the application and declares the corresponding permissions in the <code>AndroidManifest.xml</code> file using the <code>&lt;uses-permission&gt;</code> element.</p>
+            <p>For example:</p>
+            <div class="code-card"><pre><code>&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+
+    &lt;uses-permission
+        android:name="android.permission.INTERNET" /&gt;
+
+    &lt;uses-permission
+        android:name="android.permission.CAMERA" /&gt;
+
+    &lt;application&gt;
+        &lt;!-- Application components --&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</code></pre></div>
+
+            <p>Option 1:</p>
+            <h4>Application Installation</h4>
+            <p>When the application is installed, the Android operating system examines the manifest file and identifies the permissions requested by the application.</p>
+            <p>Normal permissions are automatically granted. Signature permissions are granted if the required signing conditions are satisfied.</p>
+            <p>Dangerous permissions generally remain ungranted until the user approves them at runtime.</p>
+
+            <p>Option 2:</p>
+            <h4>Runtime Permission</h4>
+            <p>If a runtime permission has not been granted, the application requests permission from the user.</p>
+            <p>The Android operating system displays a permission dialog that allows the user to approve or deny the request.</p>
+            <p>The following example demonstrates how an Android application can request camera permission using Kotlin.</p>
+
+            <h4>Step 1: Declare Permission in AndroidManifest.xml</h4>
+            <div class="code-card"><pre><code>&lt;uses-permission
+    android:name="android.permission.CAMERA" /&gt;</code></pre></div>
+
+            <h4>Step 2: Register a Permission Request</h4>
+            <p>The Activity Result API provides a method for requesting permission and receiving the user's response.</p>
+            <div class="code-card"><pre><code>private val cameraPermissionLauncher =
+    registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted -&gt;
+
+        if (isGranted) {
+            openCamera()
+        } else {
+            Toast.makeText(
+                this,
+                "Camera permission denied",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }</code></pre></div>
+
+            <h4>Step 3: Check and Request Permission</h4>
+            <div class="code-card"><pre><code>private fun checkCameraPermission() {
+
+    if (ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
+        openCamera()
+    } else {
+        cameraPermissionLauncher.launch(
+            Manifest.permission.CAMERA
+        )
+    }
+}</code></pre></div>
+
+            <h3>2.3.5 Fragements and its uses:</h3>
+            <h4>Introduction to Fragments</h4>
+            <p>A <strong>Fragment</strong> is a reusable and independent part of an Android application's user interface (UI) that represents a portion of an Activity. It has its own layout, behavior, and lifecycle, but it must be hosted by an Activity or another Fragment.</p>
+            <p>Fragments are used to divide an application's user interface into smaller and manageable sections. Each fragment can perform a specific function, making the application easier to develop, maintain, and reuse.</p>
+            <p>An Activity can contain one or more Fragments, and fragments can be added, removed, or replaced dynamically while the application is running.</p>
+            <p>For example, consider a shopping application with three sections:</p>
+            <ul>
+              <li><strong>Home Fragment:</strong> Displays available products.</li>
+              <li><strong>Cart Fragment:</strong> Displays products added to the shopping cart.</li>
+              <li><strong>Profile Fragment:</strong> Displays user account information.</li>
+            </ul>
+            <p>Instead of creating a separate Activity for every section, developers can use different Fragments within a single Activity.</p>
+
+            <h4>Advantages of Fragments in Android</h4>
+            <p><strong>1. Reusability:</strong> Fragments can be used in multiple Activities or layouts, reducing repeated code and development effort.</p>
+            <p><strong>2. Modularity:</strong> Fragments divide applications into smaller, independent components, making the source code easier to organize and maintain.</p>
+            <p><strong>3. Flexible UI Design:</strong> Fragments allow developers to design different layouts for different screen sizes and orientations.</p>
+            <p><strong>4. Dynamic UI Management:</strong> Fragments can be added, removed, shown, hidden, or replaced at runtime according to user actions.</p>
+            <p><strong>5. Independent Lifecycle:</strong> Each Fragment has its own lifecycle, allowing developers to manage its behavior and resources according to its current state. However, its lifecycle is still controlled by its host.</p>
+            <p><strong>6. Easier Navigation:</strong> Fragments help manage navigation between different screens or sections within a single Activity.</p>
+            <p><strong>7. Better Code Maintenance:</strong> Changes made to one Fragment can often be managed without modifying unrelated parts of the application.</p>
+
+            <div class="past-syllabus">
+              <span class="past-syllabus-label">Past syllabus</span>
+              <h4>Fragment Lifecycle Methods</h4>
+              <figure class="diagram-card">
+                <img src="images/fragment_lifecycle.svg" alt="Diagram showing Fragment lifecycle states, callbacks, and View lifecycle" />
+                <figcaption>Android Fragment and View lifecycle.</figcaption>
+              </figure>
+            </div>
+
+            <h4>Fragment Example</h4>
+            <p>This Kotlin example shows where common Fragment lifecycle methods are used.</p>
+            <div class="code-card"><pre><code>class HomeFragment : Fragment(R.layout.fragment_home) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Initialize Fragment data
+    }
+
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+        // Initialize UI components
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Fragment enters the started state
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Fragment becomes active
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Fragment leaves the resumed state
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // Fragment enters the stopped state
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Clean up UI references
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Final Fragment cleanup
+    }
+}</code></pre></div>
+
+            <h4>1. onAttach()</h4>
+            <p>The <code>onAttach()</code> method is called when a Fragment is first connected to its hosting Activity or Context.</p>
+            <p>At this stage, the Fragment becomes associated with its host and can access its Context.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Establishes the connection between the Fragment and its host.</li>
+              <li>Allows the Fragment to access the application or Activity Context.</li>
+              <li>Can be used to initialize dependencies that require a Context.</li>
+            </ul>
+
+            <h4>2. onCreate()</h4>
+            <p>The <code>onCreate()</code> method is called when the Fragment is being created.</p>
+            <p>This method is mainly used to initialize data and components that do not directly depend on the Fragment's user interface.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Initializes variables and non-UI components.</li>
+              <li>Retrieves initial arguments passed to the Fragment.</li>
+              <li>Restores previously saved Fragment state when available.</li>
+            </ul>
+
+            <h4>3. onCreateView()</h4>
+            <p>The <code>onCreateView()</code> method is called when Android needs to create the Fragment's user interface.</p>
+            <p>It usually inflates an XML layout file and returns the View that represents the Fragment's interface.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Creates the Fragment's UI.</li>
+              <li>Inflates the XML layout into a View hierarchy.</li>
+              <li>Returns the root View to be displayed on the screen.</li>
+            </ul>
+
+            <h4>4. onViewCreated()</h4>
+            <p>The <code>onViewCreated()</code> method is called immediately after the Fragment's View has been created.</p>
+            <p>It allows developers to initialize UI components and define how users will interact with them.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Initializes buttons, text fields, and other UI elements.</li>
+              <li>Sets click listeners and other event handlers.</li>
+              <li>Connects the UI to data using lifecycle-aware observers.</li>
+            </ul>
+
+            <h4>5. onViewStateRestored()</h4>
+            <p>The <code>onViewStateRestored()</code> method is called after Android has restored the saved state of the Fragment's View hierarchy.</p>
+            <p>It allows developers to perform tasks that depend on previously saved UI state.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Handles restored UI values.</li>
+              <li>Performs additional setup after View state restoration.</li>
+            </ul>
+
+            <h4>6. onStart()</h4>
+            <p>The <code>onStart()</code> method is called when the Fragment enters the started state.</p>
+            <p>At this stage, the Fragment is becoming visible to the user, but it is not necessarily ready for full user interaction.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Prepares the Fragment for visible operation.</li>
+              <li>Starts operations that should run while the Fragment is visible.</li>
+              <li>Registers listeners that are needed during the visible state.</li>
+            </ul>
+
+            <h4>7. onResume()</h4>
+            <p>The <code>onResume()</code> method is called when the Fragment enters the resumed state and becomes active for user interaction.</p>
+            <p>This is generally the state in which the user can interact with the Fragment.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Enables active user interactions.</li>
+              <li>Starts operations that require the Fragment to be in the foreground.</li>
+              <li>Resumes tasks that were paused earlier.</li>
+            </ul>
+
+            <h4>8. onPause()</h4>
+            <p>The <code>onPause()</code> method is called when the Fragment leaves the resumed state.</p>
+            <p>This may happen when the user navigates to another screen, the hosting Activity is paused, or a Fragment operation changes its state.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Pauses operations that require active user interaction.</li>
+              <li>Stops or reduces foreground-specific activities.</li>
+              <li>Performs lightweight updates when necessary.</li>
+            </ul>
+
+            <h4>9. onStop()</h4>
+            <p>The <code>onStop()</code> method is called when the Fragment is no longer visible to the user.</p>
+            <p>At this stage, the Fragment enters the stopped state.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Stops tasks that are needed only while the Fragment is visible.</li>
+              <li>Unregisters visibility-related listeners when required.</li>
+              <li>Releases resources that are unnecessary while the Fragment is stopped.</li>
+            </ul>
+
+            <h4>10. onDestroyView()</h4>
+            <p>The <code>onDestroyView()</code> method is called when the View hierarchy associated with the Fragment is being destroyed.</p>
+            <p>The Fragment object itself may still exist even after its View has been destroyed.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Cleans up UI-related resources.</li>
+              <li>Removes references to destroyed Views.</li>
+              <li>Prevents memory leaks caused by holding references to old Views.</li>
+            </ul>
+
+            <h4>11. onDestroy()</h4>
+            <p>The <code>onDestroy()</code> method is called when the Fragment instance is being destroyed.</p>
+            <p>It is used to perform final cleanup of resources associated with the Fragment itself.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Releases remaining Fragment-specific resources.</li>
+              <li>Performs final cleanup operations.</li>
+              <li>Marks the end of the Fragment instance's lifecycle.</li>
+            </ul>
+
+            <h4>12. onDetach()</h4>
+            <p>The <code>onDetach()</code> method is called when the Fragment is disconnected from its hosting Activity or Context.</p>
+            <p>After this method, the Fragment is no longer attached to its host.</p>
+            <p><strong>Main functions:</strong></p>
+            <ul>
+              <li>Removes remaining connections with the hosting Activity.</li>
+              <li>Cleans up references associated with the host.</li>
+              <li>Completes the Fragment's detachment process.</li>
+            </ul>
+
+            <h3 id="intents">2.5 Intent and its type</h3>
+            <p>An Intent is a messaging object in Android that is used to request an action from another application component. It allows communication between different components of an Android application, such as Activities, Services, and Broadcast Receivers.</p>
+            <p>In simple words, an Intent is used to tell the Android system what action needs to be performed. For example, an application can use an Intent to open another Activity, start a Service, make a phone call, open a web page, or share data with another application.</p>
+            <p>An Intent can also carry information from one component to another. This makes it an important part of communication and navigation in Android applications.</p>
+            <p>The major purposes of Intent are:</p>
+            <ol>
+              <li>Starting an Activity: An Intent is used to open a new Activity from an existing Activity.</li>
+              <li>Starting a Service: It can request a background operation by starting a Service.</li>
+              <li>Sending Broadcast Messages: It can send messages to Broadcast Receivers to notify them about particular events.</li>
+              <li>Passing Data: An Intent allows data to be transferred between different Activities or components.</li>
+              <li>Opening Other Applications: It allows an application to request actions from other applications, such as opening a web browser, sharing text, or composing an email.</li>
+            </ol>
+
+            <h4>Types of Intent in Android</h4>
+            <p>Android provides two main types of Intent:</p>
+            <ol>
+              <li>Explicit Intent</li>
+              <li>Implicit Intent</li>
+            </ol>
+
+            <h4>Explicit Intent</h4>
+            <p>An Explicit Intent is an Intent that directly specifies the application component that should perform an action. It is commonly used to navigate between Activities within the same application.</p>
+            <p>In an Explicit Intent, the developer provides the exact target component. Therefore, the Android system knows which component needs to be started.</p>
+            <p>For example, when a user successfully logs into an application, an Explicit Intent can be used to open the Home Activity from the Login Activity.</p>
+            <p>Example:</p>
+            <div class="code-card"><pre><code>val intent = Intent(this@MainActivity, HomePage::class.java)
+intent.putExtra("Username", user))
+startActivity(intent)
+
+//when receiving in another class
+val userName = intent.getStringExtra("Username") ?: ""</code></pre></div>
+
+            <h4>Implicit Intent</h4>
+            <p>An Implicit Intent is an Intent that does not specify the exact application component that should perform an action. Instead, it describes the action to be performed, and the Android system finds a suitable application or component to handle the request.</p>
+            <p>In an Implicit Intent, the developer specifies the required action, such as opening a web page, sharing text, or dialing a phone number.</p>
+            <p>If multiple suitable applications are available, Android may allow the user to choose an application.</p>
+            <p>For example, when a user clicks a website link, an Implicit Intent can request that Android open the URL using a suitable web browser.</p>
+            <div class="code-card"><pre><code>val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"))
+startActivity(intent)</code></pre></div>
+
+            <h4>Difference Between Explicit and Implicit Intent</h4>
+            <table>
+              <thead><tr><th>Basis</th><th>Explicit Intent</th><th>Implicit Intent</th></tr></thead>
+              <tbody>
+                <tr><td>Definition</td><td>Specifies the exact target component.</td><td>Specifies the action to be performed.</td></tr>
+                <tr><td>Target Component</td><td>Already known and defined.</td><td>Selected by the Android system based on available handlers.</td></tr>
+                <tr><td>Common Usage</td><td>Mainly used within the same application.</td><td>Commonly used to interact with other applications.</td></tr>
+                <tr><td>Flexibility</td><td>Less flexible because the target is fixed.</td><td>More flexible because different applications can handle the action.</td></tr>
+                <tr><td>Example</td><td>Opening Home Activity from Login Activity.</td><td>Opening a website in a browser.</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
         <div class="next-unit"><p>Next: explore Android application development and user interfaces.</p><a href="unit3.html">Next unit &rarr;</a></div>
