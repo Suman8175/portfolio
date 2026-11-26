@@ -10,6 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20261118">
   <style>
+    .compose-component { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); align-items: center; gap: 28px; margin: 0 0 34px; }
+    .compose-component-copy { min-width: 0; }
+    .compose-component-copy h3 { margin-top: 0; }
+    .compose-component .code-card { margin-bottom: 0; }
+    .compose-component .diagram-card { width: 100%; box-sizing: border-box; margin: 0; }
+    .compose-component .diagram-card img { width: auto; max-width: 100%; max-height: min(68vh, 560px); margin: 0 auto; object-fit: contain; }
     .version-history { margin: 42px 0 46px; padding: 25px; background: rgba(255, 253, 248, .58); border: 1px solid var(--line, #ded7c9); border-radius: 8px; }
     .past-syllabus { margin: 22px 0 30px; padding: 18px 22px; background: rgba(242, 234, 219, .55); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 6px; }
     .past-syllabus-label { display: inline-block; margin-bottom: 10px; padding: 4px 8px; color: var(--ink-soft); background: rgba(255, 253, 248, .75); border: 1px solid var(--line); border-radius: 3px; font: .64rem var(--mono); letter-spacing: .06em; }
@@ -37,6 +43,9 @@
       .version-history-intro { max-width: none; }
       .version-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 10px; }
       .version-node strong { max-width: 145px; }
+      .compose-component { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+      .compose-component .diagram-card { justify-self: center; max-width: min(100%, 360px); }
+      .compose-component .diagram-card img { max-height: min(70vh, 560px); }
     }
   </style>
 </head>
@@ -88,6 +97,7 @@
             <a class="topic-card" href="#android-introduction"><h3>2.1 Introduction to Android</h3><p>Android is an open-source, Linux-based mobile operating system developed by Google.</p></a>
             <a class="topic-card" href="#android-architecture"><h3>2.2 Android Architecture Overview</h3><p>Kernel and Android runtime concepts.</p></a>
             <a class="topic-card" href="#application-components"><h3>2.3 Android Application Components</h3><p>Activities and the Android Manifest File.</p></a>
+            <a class="topic-card" href="#ui-components"><h3>2.4 UI Components in Android (Jetpack Compose)</h3><p>Jetpack Compose UI components.</p></a>
             <a class="topic-card" href="#intents"><h3>2.5 Intent and its type</h3><p>Intent purposes, explicit intents, and implicit intents.</p></a>
           </div>
           <p class="empty-state" id="empty-state">No topic matches that search yet.</p>
@@ -871,6 +881,277 @@
               <li>Cleans up references associated with the host.</li>
               <li>Completes the Fragment's detachment process.</li>
             </ul>
+
+            <h2 id="ui-components">2.4 UI Components in Android (Jetpack Compose)</h2>
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>1. Text</h3>
+            <p>Text is used to display information or messages on the screen. In Jetpack Compose, the Text() composable function is used to display text.</p>
+            <p>Required parameter: text</p>
+            <p>Example:</p>
+            <div class="code-card"><pre><code>Text(text = "Welcome to my app",
+        modifier = Modifier.fillMaxWidth(),
+        textAlign = TextAlign.Center,
+        color = Color.Red,
+        fontSize = 40.sp
+        )</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/Text_Example.png" alt="Text component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>2. TextField</h3>
+            <p>TextField is used to accept text input from the user, such as name, email and password. The TextField() composable function is used to create an input field.</p>
+            <p>Required parameters: value, onValueChange</p>
+            <div class="code-card"><pre><code>var username by remember { mutableStateOf("") }
+    OutlinedTextField(
+        value = username,
+        onValueChange = {username = it},
+        label = {Text(text = "Username")},
+        shape = RoundedCornerShape(4.dp)
+    )</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/TextField_Example.png" alt="TextField component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>3. Button</h3>
+            <p>Button is used to perform an action when the user clicks on it, such as submitting a form, saving data or navigating to another screen. The Button() composable function is used.</p>
+            <p>Required parameters: onClick, content</p>
+            <div class="code-card"><pre><code>Button(
+        onClick = {
+            println("Button Clicked")
+        },
+        enabled = true,
+        shape = RoundedCornerShape(122.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Red,
+            contentColor = Color.Yellow
+        )
+    ) {
+        Text(text = "Click Me")
+        Spacer(modifier = Modifier.padding(horizontal =  5.dp))
+        Icon(
+            imageVector = Icons.Default.Add,
+            contentDescription = null,
+            modifier = Modifier.size(ButtonDefaults.IconSize)
+        )
+    }</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/Button_Example.png" alt="Button component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>4. Dialog Box</h3>
+            <p>A Dialog Box is used to display important messages, warnings or confirmation requests to the user. In Jetpack Compose, the AlertDialog() composable function is commonly used.</p>
+            <p>Required parameters: onDismissRequest, confirmButton</p>
+            <p>Common optional parameters: title, text, dismissButton</p>
+            <div class="code-card"><pre><code>AlertDialog(
+        onDismissRequest = { },
+        title = {
+            Text("Confirmation")
+        },
+        text = {
+            Text("Are you sure you want to continue?")
+        },
+        confirmButton = {
+            TextButton(onClick = { }) {
+                Text("OK")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = { }) {
+                Text("Cancel")
+            }
+        }
+    )</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/Dialog_Box_Example.png" alt="Dialog Box component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>5. Date Picker</h3>
+            <p>Date Picker is used to allow users to select a date, including day, month and year. The DatePicker() composable function is used.</p>
+            <p>Required parameter: state</p>
+            <div class="code-card"><pre><code>val datePickerState = rememberDatePickerState()
+    DatePicker(datePickerState)</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/DatePicker_Example.png" alt="Date Picker component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>6.Time Picker</h3>
+            <p>Time Picker is used to allow users to select a particular time in hours and minutes. The TimePicker() composable function is used.</p>
+            <p>Required parameter: state</p>
+            <div class="code-card"><pre><code>var timePickerState = rememberTimePickerState()
+    TimePicker(state = timePickerState)</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/TimePicker_Example.png" alt="Time Picker component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>7. Checkbox</h3>
+            <p>Checkbox is used to allow users to select or deselect an option. It also allows users to select multiple options independently. The Checkbox() composable function is used.</p>
+            <p>Required parameters: checked, onCheckedChange</p>
+            <div class="code-card"><pre><code>Row(
+        modifier = Modifier.padding(horizontal = 16.dp)
+            .fillMaxWidth()
+            .heightIn(min = 48.dp),
+        verticalAlignment = Alignment.CenterVertically
+    )
+    {
+        Checkbox(
+            checked = true,
+            onCheckedChange = {}
+        )
+        Spacer(modifier = Modifier.width(12.dp))
+        Text(
+            text = "Accpet Terms and Condition"
+        )
+    }</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/CheckBox_Example.png" alt="Checkbox component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>8. Radio Button</h3>
+            <p>Radio Button is used to allow users to select a single option from a group of options. The RadioButton() composable function is used.</p>
+            <p>Required parameters: selected, onClick</p>
+            <div class="code-card"><pre><code>Row(
+        modifier = Modifier.padding(horizontal = 16.dp)
+            .fillMaxWidth()
+            .heightIn(min = 48.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        RadioButton(
+            selected = true,
+            onClick = {}
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(
+            text = "Male"
+        )
+
+        Spacer(modifier = Modifier.width(50.dp))
+
+        RadioButton(
+            selected = true,
+            onClick = {}
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(
+            text = "Male"
+        )
+    }</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/Radio_Button_Example.png" alt="Radio Button component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>9. Snackbar</h3>
+            <p>Snackbar is used to display a temporary message, usually at the bottom of the screen, without interrupting the user's activity. The Snackbar() composable function is used.</p>
+            <p>Required parameter: content</p>
+            <div class="code-card"><pre><code>val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(Unit) {
+        snackbarHostState.showSnackbar("Saved Sucessfully!")
+    }
+
+    SnackbarHost(hostState = snackbarHostState)</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/Snackbar_Example.png" alt="Snackbar component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>10. List</h3>
+            <p>List is used to display a collection of items in a vertical or horizontal scrollable arrangement. Jetpack Compose provides LazyColumn() for vertical lists and LazyRow() for horizontal lists.</p>
+            <p>Required parameter: content</p>
+            <div class="code-card"><pre><code>@Composable
+fun ListCardData() {
+    val itemsList = listOf("Apple", "Banana", "Cherry", "Date", "Elderberry")
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(itemsList) { item ->
+            Card(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = item,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+        }
+    }
+}</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/List_Example.png" alt="List component example screenshot" />
+            </figure>
+            </div>
+
+            <div class="compose-component">
+              <div class="compose-component-copy">
+            <h3>11. Grid</h3>
+            <p>Grid is used to display a collection of items in rows and columns. Jetpack Compose provides LazyVerticalGrid() for vertical grids and LazyHorizontalGrid() for horizontal grids.</p>
+            <p>Required parameters: columns, content (for vertical grid)</p>
+            <div class="code-card"><pre><code>@Composable
+fun GridExample() {
+    val itemsList = (1..20).map { "Item $it" }
+
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(3),
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(itemsList) { item ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(100.dp)
+            ) {
+                Box(modifier = Modifier.padding(16.dp)) {
+                    Text(text = item)
+                }
+            }
+        }
+    }
+}</code></pre></div>
+              </div>
+            <figure class="diagram-card">
+              <img src="images/Grid_Example.png" alt="Grid component example screenshot" />
+            </figure>
+            </div>
 
             <h3 id="intents">2.5 Intent and its type</h3>
             <p>An Intent is a messaging object in Android that is used to request an action from another application component. It allows communication between different components of an Android application, such as Activities, Services, and Broadcast Receivers.</p>
